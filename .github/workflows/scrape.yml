@@ -6,6 +6,9 @@ on:
     - cron: '0 6 * * *'
   workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
 
+permissions:
+  contents: write # Grants permissions to commit and push changes back to the repository
+
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
