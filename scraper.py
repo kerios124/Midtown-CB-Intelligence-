@@ -30,7 +30,8 @@ from pypdf import PdfReader
 # ---------------------------------------------------------------------------
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 OUTPUT_FILE = os.path.join("data", "minutes.json")
-MODEL = "gemini-3.6-flash"
+# Tried in order. If the first is overloaded or unavailable, the next is used.
+MODELS = ["gemini-3.6-flash", "gemini-flash-latest"]
 PER_BOARD = 4            # max new documents to analyze per board, per run
 START_DATE = "2026-01"   # ignore minutes from meetings before this month
 MAX_CHARS = 150_000      # text sent to Gemini per document
@@ -181,29 +182,35 @@ Return JSON only, in this shape:
 
 
 def analyze_with_gemini(client, text):
+    """Try each model in MODELS. Retry busy/overloaded errors with backoff;
+    skip to the next model if one is unavailable to this key."""
     prompt = EXTRACTION_PROMPT.replace("{text}", text[:MAX_CHARS])
     last_error = None
-    for attempt in range(3):
-        try:
-            response = client.models.generate_content(
-                model=MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    temperature=0,
-                ),
-            )
-            raw = re.sub(r"^```(?:json)?|```$", "", (response.text or "").strip()).strip()
-            return json.loads(raw)
-        except Exception as e:
-            last_error = e
-            print(f"   Gemini error (attempt {attempt + 1}/3): {e}")
-            transient = any(code in str(e) for code in ("429", "500", "503", "RESOURCE_EXHAUSTED", "UNAVAILABLE"))
-            if not transient:
-                break
-            if attempt < 2:
-                time.sleep(20 * (attempt + 1))
-    raise RuntimeError(f"Gemini failed: {last_error}")
+    for model in MODELS:
+        for attempt in range(3):
+            try:
+                response = client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        temperature=0,
+                    ),
+                )
+                raw = re.sub(r"^```(?:json)?|```$", "", (response.text or "").strip()).strip()
+                return json.loads(raw)
+            except Exception as e:
+                last_error = e
+                msg = str(e)
+                print(f"   Gemini error ({model}, attempt {attempt + 1}/3): {msg[:200]}")
+                if "404" in msg or "NOT_FOUND" in msg:
+                    break  # model not available to this key; try the next one
+                transient = any(c in msg for c in ("429", "500", "503", "RESOURCE_EXHAUSTED", "UNAVAILABLE"))
+                if not transient:
+                    raise RuntimeError(f"Gemini failed: {msg}")
+                if attempt < 2:
+                    time.sleep([15, 45][attempt])
+    raise RuntimeError(f"Gemini unavailable: {last_error}")
 
 
 def flag_priority(items, full_text):
@@ -356,7 +363,7 @@ def main():
             if loc.get("lat") and loc.get("lng"):
                 _geo_cache[loc["address"]] = (loc["lat"], loc["lng"])
 
-    attempted = failed = 0
+    attempted = failed = consecutive_failures = 0
     for board in BOARDS:
         if not board["urls"]:
             print(f"[{board['board']}] Skipped: no minutes page set in BOARDS")
@@ -365,11 +372,15 @@ def main():
                 if existing.get(l["pdf_url"], {}).get("status") not in ("analyzed", "no_text")]
         print(f"[{board['board']}] {len(todo)} documents still to analyze; doing up to {PER_BOARD} this run")
         for link in todo[:PER_BOARD]:
+            if consecutive_failures >= 2:
+                print(f"[{board['board']}] Gemini looks unavailable right now; leaving the rest for the next run")
+                break
             print(f"[{board['board']}] Processing {link['date']}: {link['pdf_url']}")
             record = build_record(link, client)
             existing[link["pdf_url"]] = record
             attempted += 1
             failed += record["status"] == "ai_error"
+            consecutive_failures = consecutive_failures + 1 if record["status"] == "ai_error" else 0
 
     records = sorted(existing.values(), key=lambda r: r.get("date") or "", reverse=True)
     os.makedirs("data", exist_ok=True)
