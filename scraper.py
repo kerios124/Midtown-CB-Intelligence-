@@ -30,7 +30,7 @@ from pypdf import PdfReader
 # ---------------------------------------------------------------------------
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 OUTPUT_FILE = os.path.join("data", "minutes.json")
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-3.6-flash"
 PER_BOARD = 4            # max new documents to analyze per board, per run
 START_DATE = "2026-01"   # ignore minutes from meetings before this month
 MAX_CHARS = 150_000      # text sent to Gemini per document
@@ -203,7 +203,7 @@ def analyze_with_gemini(client, text):
                 break
             if attempt < 2:
                 time.sleep(20 * (attempt + 1))
-    raise RuntimeError(f"Gemini failed after 3 attempts: {last_error}")
+    raise RuntimeError(f"Gemini failed: {last_error}")
 
 
 def flag_priority(items, full_text):
