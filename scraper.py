@@ -357,6 +357,14 @@ def main():
     if not client:
         print("WARNING: GEMINI_API_KEY is not set. Documents will be listed but not analyzed.")
 
+    if client:  # diagnostic: which models this key can use
+        try:
+            names = sorted(m.name.replace("models/", "") for m in client.models.list()
+                           if "generateContent" in (getattr(m, "supported_actions", None) or ["generateContent"]))
+            print("Models available to this key:", ", ".join(n for n in names if "gemini" in n))
+        except Exception as e:
+            print(f"Could not list models: {e}")
+
     existing = load_existing()
     for rec in existing.values():  # reuse earlier geocodes
         for loc in rec.get("locations", []):
