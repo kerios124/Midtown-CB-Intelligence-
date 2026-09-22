@@ -31,19 +31,21 @@ from pypdf import PdfReader
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 OUTPUT_FILE = os.path.join("data", "minutes.json")
 MODEL = "gemini-2.5-flash"
-PER_BOARD = 3            # most recent documents to process per board, per run
+PER_BOARD = 4            # max new documents to analyze per board, per run
+START_DATE = "2026-01"   # ignore minutes from meetings before this month
 MAX_CHARS = 150_000      # text sent to Gemini per document
 MIN_TEXT_CHARS = 500     # less text than this = scanned PDF, can't be read
 HEADERS = {"User-Agent": "Mozilla/5.0 (Midtown-CB-Intelligence research tool)"}
 
-# Minutes archive pages. CB4 is confirmed working.
-# CB5, CB6 and CB7 are no longer at the old city URLs. Paste each board's
-# minutes page URL here; a board set to None is skipped with a log message.
+# Minutes pages for each board. A board can list several pages (CB4 posts one
+# page per year; add the new year's page each January). An empty list = skipped.
 BOARDS = [
-    {"board": "CB4", "url": "https://cbmanhattan.cityofnewyork.us/cb4/archive/full-board-minutes/"},
-    {"board": "CB5", "url": None},  # CB5 site: cb5.org
-    {"board": "CB6", "url": None},  # CB6 site: cbsix.org
-    {"board": "CB7", "url": None},
+    {"board": "CB4", "urls": [
+        "https://cbmanhattan.cityofnewyork.us/cb4/archives/2026-full-board-minutes-video/",
+    ]},
+    {"board": "CB5", "urls": []},  # CB5 site: cb5.org
+    {"board": "CB6", "urls": []},  # CB6 site: cbsix.org
+    {"board": "CB7", "urls": []},
 ]
 
 # Priority rules. These drive the Alerts & Rules tab.
@@ -91,38 +93,45 @@ def parse_meeting_date(*texts):
 
 
 def fetch_pdf_links(board):
-    """Collect PDF links from a board's archive page, newest first."""
+    """Collect PDF links from a board's minutes pages, newest first."""
+    seen, links = set(), []
+    for page_url in board["urls"]:
+        links.extend(_links_from_page(board["board"], page_url, seen))
+    dated = [l for l in links if l["date"] and l["date"] >= START_DATE]
+    print(f"[{board['board']}] Found {len(links)} PDF links, {len(dated)} from {START_DATE} on")
+    dated.sort(key=lambda x: x["date"], reverse=True)
+    return dated
+
+
+def _links_from_page(board_name, page_url, seen):
     try:
-        res = requests.get(board["url"], headers=HEADERS, timeout=20)
+        res = requests.get(page_url, headers=HEADERS, timeout=20)
     except requests.RequestException as e:
-        print(f"[{board['board']}] Could not reach {board['url']}: {e}")
+        print(f"[{board_name}] Could not reach {page_url}: {e}")
         return []
     if res.status_code != 200:
-        print(f"[{board['board']}] {board['url']} returned HTTP {res.status_code}")
+        print(f"[{board_name}] {page_url} returned HTTP {res.status_code}")
         return []
 
     soup = BeautifulSoup(res.text, "html.parser")
-    seen, links = set(), []
+    links = []
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
         if not href.lower().split("?")[0].endswith(".pdf"):
             continue
-        url = urljoin(board["url"], href)
+        url = urljoin(page_url, href)
         if url in seen:
             continue
         seen.add(url)
         text = a.get_text(" ", strip=True)
         filename = url.rsplit("/", 1)[-1]
         links.append({
-            "board": board["board"],
+            "board": board_name,
             "pdf_url": url,
             "link_text": text,
             "date": parse_meeting_date(text, filename),
         })
 
-    print(f"[{board['board']}] Found {len(links)} PDF links")
-    # Dated documents newest first; undated ones last.
-    links.sort(key=lambda x: x["date"] or "0000", reverse=True)
     return links
 
 
@@ -188,10 +197,12 @@ def analyze_with_gemini(client, text):
             return json.loads(raw)
         except Exception as e:
             last_error = e
-            wait = 20 * (attempt + 1)
             print(f"   Gemini error (attempt {attempt + 1}/3): {e}")
+            transient = any(code in str(e) for code in ("429", "500", "503", "RESOURCE_EXHAUSTED", "UNAVAILABLE"))
+            if not transient:
+                break
             if attempt < 2:
-                time.sleep(wait)
+                time.sleep(20 * (attempt + 1))
     raise RuntimeError(f"Gemini failed after 3 attempts: {last_error}")
 
 
@@ -255,7 +266,8 @@ def load_existing():
             data = json.load(f)
         # Records without a status came from the old scraper and were never read; drop them.
         return {r["pdf_url"]: r for r in data
-                if isinstance(r, dict) and r.get("pdf_url") and r.get("status")}
+                if isinstance(r, dict) and r.get("pdf_url") and r.get("status")
+                and (r.get("date") or "") >= START_DATE}
     except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
@@ -344,17 +356,20 @@ def main():
             if loc.get("lat") and loc.get("lng"):
                 _geo_cache[loc["address"]] = (loc["lat"], loc["lng"])
 
+    attempted = failed = 0
     for board in BOARDS:
-        if not board["url"]:
-            print(f"[{board['board']}] Skipped: no minutes page URL set in BOARDS")
+        if not board["urls"]:
+            print(f"[{board['board']}] Skipped: no minutes page set in BOARDS")
             continue
-        for link in fetch_pdf_links(board)[:PER_BOARD]:
-            prior = existing.get(link["pdf_url"])
-            if prior and prior.get("status") in ("analyzed", "no_text"):
-                print(f"[{board['board']}] Already processed: {link['pdf_url']}")
-                continue
-            print(f"[{board['board']}] Processing {link['date'] or 'undated'}: {link['pdf_url']}")
-            existing[link["pdf_url"]] = build_record(link, client)
+        todo = [l for l in fetch_pdf_links(board)
+                if existing.get(l["pdf_url"], {}).get("status") not in ("analyzed", "no_text")]
+        print(f"[{board['board']}] {len(todo)} documents still to analyze; doing up to {PER_BOARD} this run")
+        for link in todo[:PER_BOARD]:
+            print(f"[{board['board']}] Processing {link['date']}: {link['pdf_url']}")
+            record = build_record(link, client)
+            existing[link["pdf_url"]] = record
+            attempted += 1
+            failed += record["status"] == "ai_error"
 
     records = sorted(existing.values(), key=lambda r: r.get("date") or "", reverse=True)
     os.makedirs("data", exist_ok=True)
@@ -365,6 +380,10 @@ def main():
     for r in records:
         counts[r["status"]] = counts.get(r["status"], 0) + 1
     print(f"Saved {len(records)} records to {OUTPUT_FILE}: {counts}")
+
+    # Make the run show as failed in GitHub if Gemini didn't work at all.
+    if attempted and failed == attempted:
+        raise SystemExit("ERROR: every Gemini request failed this run. See the 'Gemini error' lines above.")
 
 
 if __name__ == "__main__":
