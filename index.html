@@ -232,6 +232,7 @@
                 date: "2026-02-14",
                 title: "CB4 Full Board Meeting Minutes - Hudson Yards Zoning & SLA",
                 summary: "Discussion regarding major ULURP application for Hudson Yards Phase II building height modification and 5 SLA liquor license applications in Chelsea.",
+                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb4/archive/full-board-minutes/",
                 committee: "Land Use & Zoning",
                 high_priority: true,
                 high_priority_reason: "ULURP Application for high-density tower height variance.",
@@ -246,6 +247,7 @@
                 date: "2026-02-12",
                 title: "CB5 Land Use Committee Minutes - Times Square Signage & Transit",
                 summary: "Reviewed BSA application for mega LED sign installation on 7th Ave and bus lane expansion along 42nd Street.",
+                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb5/archive/minutes/",
                 committee: "Land Use / Transportation",
                 high_priority: true,
                 high_priority_reason: "BSA Special Permit request for LED signage.",
@@ -260,6 +262,7 @@
                 date: "2026-02-10",
                 title: "CB6 Public Safety & Transportation Minutes",
                 summary: "Evaluated curb space allocations in Murray Hill and outdoor dining shed compliance on 3rd Avenue.",
+                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb6/archive/minutes/",
                 committee: "Transportation",
                 high_priority: false,
                 high_priority_reason: "",
@@ -273,6 +276,7 @@
                 date: "2026-02-05",
                 title: "CB7 Business & Licensing Committee",
                 summary: "Approved 4 outdoor sidewalk café renewals near Lincoln Center corridor and reviewed noise complaints.",
+                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb7/archive/minutes/",
                 committee: "Business & Licensing",
                 high_priority: false,
                 high_priority_reason: "",
@@ -375,10 +379,18 @@
 
             feed.innerHTML = highItems.map(item => `
                 <div class="p-4 hover:bg-slate-50 transition">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">${item.board}</span>
-                        <span class="text-xs text-slate-400">${item.date}</span>
-                        <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded">High Impact</span>
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">${item.board}</span>
+                            <span class="text-xs text-slate-400">${item.date}</span>
+                            <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded">High Impact</span>
+                        </div>
+                        ${item.pdf_url ? `
+                            <a href="${item.pdf_url}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:text-blue-800 bg-blue-50 px-2.5 py-1 rounded border border-blue-200 transition">
+                                <span>📄 View Source Minutes</span>
+                                <span>↗</span>
+                            </a>
+                        ` : ''}
                     </div>
                     <h4 class="text-sm font-bold text-slate-900">${item.title}</h4>
                     <p class="text-xs text-slate-600 mt-1">${item.summary}</p>
@@ -412,7 +424,15 @@
                             <span class="text-xs font-bold px-2.5 py-1 rounded bg-slate-100 text-slate-800 mr-2">${item.board}</span>
                             <span class="text-xs text-slate-500">${item.date}</span>
                         </div>
-                        ${item.high_priority ? '<span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded">High Priority</span>' : ''}
+                        <div class="flex items-center gap-2">
+                            ${item.high_priority ? '<span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded">High Priority</span>' : ''}
+                            ${item.pdf_url ? `
+                                <a href="${item.pdf_url}" target="_blank" rel="noopener" class="text-xs bg-blue-600 hover:bg-blue-700 text-white font-medium px-3 py-1 rounded-lg transition inline-flex items-center gap-1">
+                                    <span>📄 Open Document</span>
+                                    <span>↗</span>
+                                </a>
+                            ` : ''}
+                        </div>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 mb-1">${item.title}</h3>
                     <p class="text-xs text-slate-600 mb-3">${item.summary}</p>
@@ -449,11 +469,21 @@
                     if (loc.lat && loc.lng) {
                         const marker = L.marker([loc.lat, loc.lng]).addTo(map);
                         marker.bindPopup(`
-                            <div class="p-1">
-                                <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">${item.board}</span>
-                                <h4 class="text-xs font-bold text-slate-900 mt-1">${loc.address}</h4>
-                                <p class="text-xs text-slate-600 mt-0.5">${loc.description}</p>
-                                <span class="text-xs text-slate-400 block mt-1">Type: ${loc.type}</span>
+                            <div class="p-2 space-y-1">
+                                <div class="flex items-center justify-between gap-2">
+                                    <span class="text-xs font-bold px-2 py-0.5 rounded bg-blue-100 text-blue-800">${item.board}</span>
+                                    <span class="text-xs text-slate-400">${item.date}</span>
+                                </div>
+                                <h4 class="text-xs font-bold text-slate-900">${loc.address}</h4>
+                                <p class="text-xs text-slate-600">${loc.description}</p>
+                                <span class="text-xs text-slate-400 block">Type: ${loc.type}</span>
+                                ${item.pdf_url ? `
+                                    <div class="pt-1 mt-1 border-t border-slate-100">
+                                        <a href="${item.pdf_url}" target="_blank" rel="noopener" class="text-xs text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">
+                                            📄 View Full PDF Minutes ↗
+                                        </a>
+                                    </div>
+                                ` : ''}
                             </div>
                         `);
                         mapMarkers.push(marker);
