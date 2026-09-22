@@ -30,7 +30,7 @@
             </div>
             <div class="flex items-center gap-3">
                 <span id="last-updated" class="text-xs bg-slate-800 text-slate-300 px-3 py-1.5 rounded-full border border-slate-700">
-                    Data Status: Live Feed
+                    Loading data…
                 </span>
             </div>
         </div>
@@ -225,66 +225,8 @@
     </footer>
 
     <script>
-        let dataset = [
-            {
-                id: "cb4-2026-02",
-                board: "CB4",
-                date: "2026-02-14",
-                title: "CB4 Full Board Meeting Minutes - Hudson Yards Zoning & SLA",
-                summary: "Discussion regarding major ULURP application for Hudson Yards Phase II building height modification and 5 SLA liquor license applications in Chelsea.",
-                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb4/archive/full-board-minutes/",
-                committee: "Land Use & Zoning",
-                high_priority: true,
-                high_priority_reason: "ULURP Application for high-density tower height variance.",
-                locations: [
-                    { address: "501 W 34th St, New York, NY", lat: 40.7554, lng: -74.0005, description: "Hudson Yards Phase II tower height review", type: "Zoning Variance" },
-                    { address: "220 8th Ave, New York, NY", lat: 40.7448, lng: -74.0001, description: "New On-Premises Liquor License Application", type: "Liquor License" }
-                ]
-            },
-            {
-                id: "cb5-2026-02",
-                board: "CB5",
-                date: "2026-02-12",
-                title: "CB5 Land Use Committee Minutes - Times Square Signage & Transit",
-                summary: "Reviewed BSA application for mega LED sign installation on 7th Ave and bus lane expansion along 42nd Street.",
-                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb5/archive/minutes/",
-                committee: "Land Use / Transportation",
-                high_priority: true,
-                high_priority_reason: "BSA Special Permit request for LED signage.",
-                locations: [
-                    { address: "1540 Broadway, New York, NY", lat: 40.7580, lng: -73.9855, description: "BSA Special permit for LED digital display", type: "BSA Variance" },
-                    { address: "W 42nd St & 5th Ave, New York, NY", lat: 40.7536, lng: -73.9818, description: "Dedicated bus line traffic redesign", type: "Transit" }
-                ]
-            },
-            {
-                id: "cb6-2026-02",
-                board: "CB6",
-                date: "2026-02-10",
-                title: "CB6 Public Safety & Transportation Minutes",
-                summary: "Evaluated curb space allocations in Murray Hill and outdoor dining shed compliance on 3rd Avenue.",
-                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb6/archive/minutes/",
-                committee: "Transportation",
-                high_priority: false,
-                high_priority_reason: "",
-                locations: [
-                    { address: "580 3rd Ave, New York, NY", lat: 40.7485, lng: -73.9754, description: "Outdoor dining enclosure review", type: "Public Space" }
-                ]
-            },
-            {
-                id: "cb7-2026-02",
-                board: "CB7",
-                date: "2026-02-05",
-                title: "CB7 Business & Licensing Committee",
-                summary: "Approved 4 outdoor sidewalk café renewals near Lincoln Center corridor and reviewed noise complaints.",
-                pdf_url: "https://cbmanhattan.cityofnewyork.us/cb7/archive/minutes/",
-                committee: "Business & Licensing",
-                high_priority: false,
-                high_priority_reason: "",
-                locations: [
-                    { address: "1900 Broadway, New York, NY", lat: 40.7728, lng: -73.9817, description: "Sidewalk cafe enclosure permit", type: "Liquor/Sidewalk" }
-                ]
-            }
-        ];
+        // Real data only. Loaded from data/minutes.json, which the scraper writes.
+        let dataset = [];
 
         let map = null;
         let mapMarkers = [];
@@ -305,14 +247,15 @@
                 const res = await fetch('./data/minutes.json');
                 if (res.ok) {
                     const json = await res.json();
-                    if (Array.isArray(json) && json.length > 0) {
-                        dataset = json;
-                        document.getElementById('last-updated').innerText = "Data Status: Syncing with Repo";
-                    }
+                    if (Array.isArray(json)) dataset = json;
                 }
             } catch (e) {
-                console.log("Loaded baseline dataset.");
+                console.error("Could not load data/minutes.json", e);
             }
+            const read = dataset.filter(d => d.status === 'analyzed').length;
+            document.getElementById('last-updated').innerText = dataset.length
+                ? `${dataset.length} documents · ${read} read and analyzed`
+                : "No minutes loaded yet. Run the scraper from the Actions tab.";
         }
 
         function switchTab(tabId) {
@@ -451,21 +394,45 @@
                         </div>
                     </div>
                     <h3 class="text-base font-bold text-slate-900 mb-1">${item.title}</h3>
+                    ${statusBadge(item)}
                     <p class="text-xs text-slate-600 mb-3">${item.summary}</p>
+                    ${renderItems(item)}
 
-                    ${item.locations && item.locations.length > 0 ? `
-                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-1">
-                            <p class="text-xs font-bold text-slate-700">Extracted Locations:</p>
-                            ${item.locations.map(loc => `
-                                <p class="text-xs text-slate-600">📍 <strong>${loc.address}</strong> — ${loc.description} (${loc.type})</p>
-                            `).join('')}
-                        </div>
-                    ` : ''}
                 </div>
             `).join('');
         }
 
         function filterExplorer() { renderExplorer(); }
+
+        const STATUS_LABELS = {
+            no_text: 'Not read: scanned PDF with no text',
+            ai_error: 'Not read: analysis failed, will retry',
+            download_error: 'Not read: PDF could not be downloaded',
+            not_analyzed: 'Not read: no API key on this run'
+        };
+
+        function statusBadge(item) {
+            if (!item.status || item.status === 'analyzed') return '';
+            const label = STATUS_LABELS[item.status] || 'Not read';
+            return `<p class="text-xs bg-slate-100 text-slate-700 border border-slate-300 rounded px-2 py-1 mb-2 inline-block">${label}. Open the source document.</p>`;
+        }
+
+        function renderItems(item) {
+            const items = item.items || [];
+            if (!items.length) return '';
+            return `
+                <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 space-y-2 mb-3">
+                    <p class="text-xs font-bold text-slate-700">Items in these minutes</p>
+                    ${items.map(i => `
+                        <div class="text-xs text-slate-700 border-l-2 ${i.verified ? 'border-emerald-400' : 'border-red-400'} pl-2">
+                            <p><strong>${i.topic || ''}</strong>${i.address ? ` · ${i.address}` : ''} <span class="text-slate-400">(${i.category || 'Other'})</span></p>
+                            <p>${i.action || ''}${i.vote ? ` · Vote: ${i.vote}` : ''}</p>
+                            ${i.evidence ? `<p class="italic text-slate-500">“${i.evidence}”</p>` : ''}
+                            ${i.verified ? '' : '<p class="text-red-600 font-semibold">Excerpt not found word-for-word in the PDF. Check the source before using.</p>'}
+                        </div>
+                    `).join('')}
+                </div>`;
+        }
 
         function initMap() {
             map = L.map('map').setView([40.7549, -73.9840], 13);
@@ -492,7 +459,9 @@
                                 </div>
                                 <h4 class="text-xs font-bold text-slate-900">${loc.address}</h4>
                                 <p class="text-xs text-slate-600">${loc.description}</p>
+                                ${loc.action ? `<p class="text-xs text-slate-600">Board action: ${loc.action}</p>` : ''}
                                 <span class="text-xs text-slate-400 block">Type: ${loc.type}</span>
+                                ${loc.verified === false ? '<span class="text-xs text-red-600 block">Unverified: check the source</span>' : ''}
                                 ${item.pdf_url ? `
                                     <div class="pt-1 mt-1 border-t border-slate-100">
                                         <a href="${item.pdf_url}" target="_blank" rel="noopener" class="text-xs text-blue-600 font-semibold hover:underline inline-flex items-center gap-1">
@@ -521,33 +490,32 @@
             resultBox.classList.remove('hidden');
             resultBox.innerText = "Processing text through Gemini AI...";
 
-            if (apiKey) {
-                try {
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: `Extract structured JSON from these minutes:\n${text}\nReturn JSON with keys: summary, high_priority (boolean), high_priority_reason, committee, locations (array of {address, description, type})` }] }]
-                        })
-                    });
-                    const resData = await response.json();
-                    resultBox.innerText = JSON.stringify(resData, null, 2);
-                    return;
-                } catch(e) {
-                    console.error(e);
-                    resultBox.innerText = "Error requesting API. Falling back to default response.";
-                }
+            if (!apiKey) {
+                resultBox.innerText = "Add a Gemini API key above to run the analysis. The key stays in your browser and is sent only to Google.";
+                return;
             }
 
-            setTimeout(() => {
-                resultBox.innerText = JSON.stringify({
-                    status: "Analyzed Successfully",
-                    summary: "Sample extraction generated for demonstration.",
-                    high_priority: true,
-                    high_priority_reason: "Contains land use variance request under BSA.",
-                    committee: "Land Use & Zoning"
-                }, null, 2);
-            }, 800);
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: `Using ONLY the text below, extract JSON with keys: summary, items (array of {topic, category, address, action, vote, evidence}). "evidence" must be copied word for word from the text. If something is not in the text, use null. Do not guess.\n\n${text}` }] }],
+                        generationConfig: { responseMimeType: 'application/json', temperature: 0 }
+                    })
+                });
+                const resData = await response.json();
+                if (!response.ok) {
+                    resultBox.innerText = `Gemini returned an error: ${resData.error?.message || response.status}`;
+                    return;
+                }
+                const out = resData.candidates?.[0]?.content?.parts?.map(p => p.text).join('') || '';
+                try { resultBox.innerText = JSON.stringify(JSON.parse(out), null, 2); }
+                catch { resultBox.innerText = out || 'Gemini returned no text.'; }
+            } catch (e) {
+                console.error(e);
+                resultBox.innerText = `Request failed: ${e.message}`;
+            }
         }
     </script>
 </body>
