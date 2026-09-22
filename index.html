@@ -178,11 +178,11 @@
                         <textarea id="analyzer-text" rows="8" placeholder="Paste meeting transcript text here..." class="w-full text-xs border border-slate-300 rounded-lg p-3 font-mono"></textarea>
                     </div>
                     <button onclick="runLocalAnalysis()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-3 rounded-lg transition shadow-sm">
-                        Extract Intelligence with Gemini 3 Flash
+                        Extract Intelligence with Gemini
                     </button>
                 </div>
 
-                <div id="analyzer-result" class="mt-6 hidden p-4 bg-slate-900 text-emerald-400 rounded-lg font-mono text-xs overflow-x-auto"></div>
+                <div id="analyzer-result" class="mt-6 hidden p-4 bg-slate-900 text-emerald-400 rounded-lg font-mono text-xs overflow-x-auto whitespace-pre-wrap"></div>
             </div>
         </section>
 
@@ -221,7 +221,7 @@
     </main>
 
     <footer class="bg-white border-t border-slate-200 mt-auto py-4 text-center text-xs text-slate-500">
-        <p>Midtown Manhattan CB Minutes Monitor • Powered by Gemini 3 Flash & Leaflet</p>
+        <p>Midtown Manhattan CB Minutes Monitor • Powered by Gemini AI & Leaflet</p>
     </footer>
 
     <script>
@@ -288,6 +288,8 @@
 
         let map = null;
         let mapMarkers = [];
+        let topicChartInstance = null;
+        let boardChartInstance = null;
 
         document.addEventListener('DOMContentLoaded', async () => {
             await loadLiveJSON();
@@ -340,13 +342,17 @@
         }
 
         function renderCharts() {
+            // Topic Chart
             const topicCounts = {};
             dataset.forEach(d => {
                 const comm = d.committee || 'General';
                 topicCounts[comm] = (topicCounts[comm] || 0) + 1;
             });
 
-            new Chart(document.getElementById('topicChart'), {
+            const topicCtx = document.getElementById('topicChart').getContext('2d');
+            if (topicChartInstance) topicChartInstance.destroy();
+
+            topicChartInstance = new Chart(topicCtx, {
                 type: 'bar',
                 data: {
                     labels: Object.keys(topicCounts),
@@ -355,10 +361,14 @@
                 options: { responsive: true, maintainAspectRatio: false }
             });
 
+            // Board Chart
             const boardCounts = { 'CB4': 0, 'CB5': 0, 'CB6': 0, 'CB7': 0 };
             dataset.forEach(d => { if (boardCounts[d.board] !== undefined) boardCounts[d.board]++; });
 
-            new Chart(document.getElementById('boardChart'), {
+            const boardCtx = document.getElementById('boardChart').getContext('2d');
+            if (boardChartInstance) boardChartInstance.destroy();
+
+            boardChartInstance = new Chart(boardCtx, {
                 type: 'doughnut',
                 data: {
                     labels: Object.keys(boardCounts),
@@ -411,11 +421,17 @@
                 if (boardFilter !== 'ALL' && item.board !== boardFilter) return false;
                 if (priorityFilter === 'HIGH' && !item.high_priority) return false;
                 if (searchQuery) {
-                    const text = (item.title + ' ' + item.summary + ' ' + (item.committee || '')).toLowerCase();
+                    const locsText = (item.locations || []).map(l => `${l.address} ${l.description}`).join(' ');
+                    const text = (item.title + ' ' + item.summary + ' ' + (item.committee || '') + ' ' + locsText).toLowerCase();
                     if (!text.includes(searchQuery)) return false;
                 }
                 return true;
             });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="bg-white p-6 rounded-xl border border-slate-200 text-center text-xs text-slate-500">No matching items found.</div>`;
+                return;
+            }
 
             container.innerHTML = filtered.map(item => `
                 <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
@@ -503,7 +519,7 @@
             }
 
             resultBox.classList.remove('hidden');
-            resultBox.innerText = "Processing text through Gemini 3 Flash...";
+            resultBox.innerText = "Processing text through Gemini AI...";
 
             if (apiKey) {
                 try {
@@ -519,6 +535,7 @@
                     return;
                 } catch(e) {
                     console.error(e);
+                    resultBox.innerText = "Error requesting API. Falling back to default response.";
                 }
             }
 
