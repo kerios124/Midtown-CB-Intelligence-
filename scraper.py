@@ -1,185 +1,370 @@
+"""
+Midtown CB Minutes Scraper
+
+For each board: find minutes PDFs, keep the most recent ones, download each PDF,
+extract its text, and ask Gemini to pull out only what appears in that text.
+Every extracted item carries a verbatim excerpt, and the script checks that the
+excerpt actually appears in the PDF. Priority flags are set by fixed keyword
+rules in this file, not by the model.
+
+Results accumulate in data/minutes.json. Documents already analyzed are not
+re-sent to Gemini on later runs.
+"""
+
+import hashlib
+import io
+import json
 import os
 import re
-import json
+import time
+from urllib.parse import urljoin
+
 import requests
 from bs4 import BeautifulSoup
 from google import genai
 from google.genai import types
+from pypdf import PdfReader
 
 # ---------------------------------------------------------------------------
-# Configuration & Setup
+# Settings
 # ---------------------------------------------------------------------------
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 OUTPUT_FILE = os.path.join("data", "minutes.json")
+MODEL = "gemini-2.5-flash"
+PER_BOARD = 3            # most recent documents to process per board, per run
+MAX_CHARS = 150_000      # text sent to Gemini per document
+MIN_TEXT_CHARS = 500     # less text than this = scanned PDF, can't be read
+HEADERS = {"User-Agent": "Mozilla/5.0 (Midtown-CB-Intelligence research tool)"}
 
-# Community Board Targets
+# Minutes archive pages. CB4 is confirmed working.
+# CB5, CB6 and CB7 are no longer at the old city URLs. Paste each board's
+# minutes page URL here; a board set to None is skipped with a log message.
 BOARDS = [
     {"board": "CB4", "url": "https://cbmanhattan.cityofnewyork.us/cb4/archive/full-board-minutes/"},
-    {"board": "CB5", "url": "https://cbmanhattan.cityofnewyork.us/cb5/archive/minutes/"},
-    {"board": "CB6", "url": "https://cbmanhattan.cityofnewyork.us/cb6/archive/minutes/"},
-    {"board": "CB7", "url": "https://cbmanhattan.cityofnewyork.us/cb7/archive/minutes/"},
+    {"board": "CB5", "url": None},  # CB5 site: cb5.org
+    {"board": "CB6", "url": None},  # CB6 site: cbsix.org
+    {"board": "CB7", "url": None},
 ]
 
+# Priority rules. These drive the Alerts & Rules tab.
+PRIORITY_RULES = {
+    "ULURP / Land Use": ["ulurp", "uniform land use", "rezoning", "zoning map", "zoning text", "floor area ratio"],
+    "BSA Variance": ["board of standards and appeals", "bsa", "variance", "special permit"],
+    "SLA Liquor License": ["state liquor authority", "sla", "liquor license", "on-premises", "on premises", "500-foot", "500 foot", "4 am", "4am"],
+}
+PRIORITY_CATEGORIES = {"ULURP / Land Use", "BSA Variance", "SLA Liquor License"}
 
-def fetch_pdf_links(board_info):
-    """Scrapes PDF links from the board's web page."""
-    pdf_items = []
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-    
+MONTHS = {m: i for i, m in enumerate(
+    ["january", "february", "march", "april", "may", "june", "july",
+     "august", "september", "october", "november", "december"], start=1)}
+MONTHS.update({m[:3]: i for m, i in list(MONTHS.items())})
+MONTHS["sept"] = 9
+
+
+# ---------------------------------------------------------------------------
+# Finding documents
+# ---------------------------------------------------------------------------
+def parse_meeting_date(*texts):
+    """Find a meeting date in link text or filename. Returns 'YYYY-MM' / 'YYYY-MM-DD' or None."""
+    blob = " ".join(t for t in texts if t)
+    blob = re.sub(r"[_\-]+", " ", blob.lower())
+
+    # "january 15 2026", "jan 2026", "01 january 2026"
+    m = re.search(r"\b(" + "|".join(sorted(MONTHS, key=len, reverse=True)) +
+                  r")\.?\s*(\d{1,2})?(?:st|nd|rd|th)?,?\s*(20\d{2})\b", blob)
+    if m:
+        month, day, year = MONTHS[m.group(1)], m.group(2), m.group(3)
+        if day and 1 <= int(day) <= 31:
+            return f"{year}-{month:02d}-{int(day):02d}"
+        return f"{year}-{month:02d}"
+
+    # "2026 01 15"
+    m = re.search(r"\b(20\d{2})\s(\d{1,2})\s(\d{1,2})\b", blob)
+    if m and 1 <= int(m.group(2)) <= 12:
+        return f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}"
+
+    # "minutes 04 11" (month, two-digit year)
+    m = re.search(r"minutes\s(\d{1,2})\s(\d{2})\b", blob)
+    if m and 1 <= int(m.group(1)) <= 12:
+        return f"20{m.group(2)}-{int(m.group(1)):02d}"
+    return None
+
+
+def fetch_pdf_links(board):
+    """Collect PDF links from a board's archive page, newest first."""
     try:
-        response = requests.get(board_info["url"], headers=headers, timeout=15)
-        if response.status_code != 200:
-            print(f"[{board_info['board']}] Failed to fetch page. Status: {response.status_code}")
-            return pdf_items
+        res = requests.get(board["url"], headers=HEADERS, timeout=20)
+    except requests.RequestException as e:
+        print(f"[{board['board']}] Could not reach {board['url']}: {e}")
+        return []
+    if res.status_code != 200:
+        print(f"[{board['board']}] {board['url']} returned HTTP {res.status_code}")
+        return []
 
-        soup = BeautifulSoup(response.text, "html.parser")
-        for a_tag in soup.find_all("a", href=True):
-            href = a_tag["href"]
-            text = a_tag.get_text(strip=True)
-            
-            # Match links pointing to PDF files
-            if href.lower().endswith(".pdf") or "pdf" in href.lower():
-                full_url = href if href.startswith("http") else f"https://cbmanhattan.cityofnewyork.us{href}"
-                
-                # Extract year/date from URL or link text if possible
-                date_match = re.search(r"20\d{2}[-_/]\d{2}", href) or re.search(r"20\d{2}", href)
-                date_str = date_match.group(0) if date_match else "2026-09"
+    soup = BeautifulSoup(res.text, "html.parser")
+    seen, links = set(), []
+    for a in soup.find_all("a", href=True):
+        href = a["href"].strip()
+        if not href.lower().split("?")[0].endswith(".pdf"):
+            continue
+        url = urljoin(board["url"], href)
+        if url in seen:
+            continue
+        seen.add(url)
+        text = a.get_text(" ", strip=True)
+        filename = url.rsplit("/", 1)[-1]
+        links.append({
+            "board": board["board"],
+            "pdf_url": url,
+            "link_text": text,
+            "date": parse_meeting_date(text, filename),
+        })
 
-                pdf_items.append({
-                    "board": board_info["board"],
-                    "title": f"{board_info['board']} Meeting Minutes - {text if text else 'Minutes'}",
-                    "pdf_url": full_url,
-                    "date": date_str,
-                    "raw_text": text
-                })
-    except Exception as e:
-        print(f"[{board_info['board']}] Scraping error: {e}")
-
-    return pdf_items
+    print(f"[{board['board']}] Found {len(links)} PDF links")
+    # Dated documents newest first; undated ones last.
+    links.sort(key=lambda x: x["date"] or "0000", reverse=True)
+    return links
 
 
-def analyze_with_gemini(client, item):
-    """Extracts structured intelligence using Gemini 2.5 Flash."""
-    prompt = f"""
-Analyze the following Community Board minute entry:
-Title: {item['title']}
-Context/Link Text: {item['raw_text']}
-URL: {item['pdf_url']}
+# ---------------------------------------------------------------------------
+# Reading documents
+# ---------------------------------------------------------------------------
+def extract_pdf_text(url):
+    res = requests.get(url, headers=HEADERS, timeout=60)
+    res.raise_for_status()
+    reader = PdfReader(io.BytesIO(res.content))
+    return "\n".join((page.extract_text() or "") for page in reader.pages)
 
-Extract structured details in JSON format matching this schema:
-{{
-  "summary": "Brief 1-2 sentence summary of key topics, resolutions, or applications discussed.",
-  "committee": "Likely committee name (e.g. Land Use & Zoning, Transportation, Business & Licensing)",
-  "high_priority": true or false (Set to true if it covers ULURP, BSA variances, rezoning, FAR changes, or SLA liquor licenses),
-  "high_priority_reason": "Explanation if high_priority is true, otherwise empty string",
-  "locations": [
-    {{
-      "address": "Full address in NYC (e.g. 501 W 34th St, New York, NY)",
-      "description": "Short description of proposal at this address",
-      "type": "Type of request (e.g., Zoning Variance, Liquor License, BSA Variance, Public Space)",
-      "lat": latitude float or null,
-      "lng": longitude float or null
-    }}
+
+def normalize(s):
+    return re.sub(r"\s+", " ", re.sub(r"[^\w\s]", "", (s or "").lower())).strip()
+
+
+EXTRACTION_PROMPT = """You are extracting information from official Manhattan Community Board minutes for a newsroom.
+
+Rules:
+- Use ONLY the text between the DOCUMENT markers. Do not use outside knowledge.
+- If something is not stated in the text, use null or leave it out. Never guess.
+- Copy addresses exactly as written in the text.
+- "evidence" must be copied word for word from the text (under 30 words).
+
+Return JSON only, in this shape:
+{
+  "meeting_date": "YYYY-MM-DD if the text states the meeting date, else null",
+  "meeting_type": "Full Board, or the committee name as stated",
+  "summary": "2-3 sentences on the most significant actions the board took",
+  "items": [
+    {
+      "topic": "short description of the matter",
+      "category": "one of: ULURP / Land Use, BSA Variance, SLA Liquor License, Cannabis License, Landmarks, Transportation, Budget, Other",
+      "address": "street address exactly as written, or null",
+      "action": "what the board did, as stated (approved, denied, approved with stipulations, laid over...)",
+      "vote": "vote tally as stated, or null",
+      "evidence": "verbatim excerpt supporting this item"
+    }
   ]
-}}
+}
+
+-----BEGIN DOCUMENT-----
+{text}
+-----END DOCUMENT-----
 """
-    try:
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json"
+
+
+def analyze_with_gemini(client, text):
+    prompt = EXTRACTION_PROMPT.replace("{text}", text[:MAX_CHARS])
+    last_error = None
+    for attempt in range(3):
+        try:
+            response = client.models.generate_content(
+                model=MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0,
+                ),
             )
-        )
-        return json.loads(response.text)
-    except Exception as e:
-        print(f"Gemini processing error for {item['title']}: {e}")
-        return {
-            "summary": "Minutes cataloged from recent Community Board archive publication.",
-            "committee": "General Board",
-            "high_priority": False,
-            "high_priority_reason": "",
-            "locations": []
-        }
+            raw = re.sub(r"^```(?:json)?|```$", "", (response.text or "").strip()).strip()
+            return json.loads(raw)
+        except Exception as e:
+            last_error = e
+            wait = 20 * (attempt + 1)
+            print(f"   Gemini error (attempt {attempt + 1}/3): {e}")
+            if attempt < 2:
+                time.sleep(wait)
+    raise RuntimeError(f"Gemini failed after 3 attempts: {last_error}")
 
 
-def geocode_address(address):
-    """Fallback geocoder using OpenStreetMap Nominatim API if coordinates are missing."""
+def flag_priority(items, full_text):
+    """Apply fixed keyword rules. Returns (high_priority, reason)."""
+    reasons = []
+    for item in items:
+        if item.get("category") in PRIORITY_CATEGORIES:
+            reasons.append(f"{item['category']}: {item.get('topic', '')}".strip(": "))
+    if not reasons:
+        lowered = full_text.lower()
+        for rule, terms in PRIORITY_RULES.items():
+            hit = next((t.strip() for t in terms
+                        if re.search(r"\b" + re.escape(t.strip()) + r"\b", lowered)), None)
+            if hit:
+                reasons.append(f"{rule} (keyword: '{hit}')")
+    return bool(reasons), "; ".join(dict.fromkeys(reasons))[:600]
+
+
+# ---------------------------------------------------------------------------
+# Geocoding
+# ---------------------------------------------------------------------------
+_geo_cache = {}
+MANHATTAN_BOUNDS = (40.68, 40.89, -74.03, -73.90)  # lat min, lat max, lng min, lng max
+
+
+def geocode(address):
+    if not address:
+        return None, None
+    if address in _geo_cache:
+        return _geo_cache[address]
+    query = address if "new york" in address.lower() else f"{address}, Manhattan, New York, NY"
+    lat = lng = None
     try:
-        url = f"https://nominatim.openstreetmap.org/search?format=json&q={requests.utils.quote(address)}"
-        headers = {"User-Agent": "Midtown-CB-Intelligence/1.0"}
-        res = requests.get(url, headers=headers, timeout=5).json()
+        time.sleep(1.1)  # Nominatim usage policy: max 1 request per second
+        res = requests.get(
+            "https://nominatim.openstreetmap.org/search",
+            params={"format": "json", "limit": 1, "q": query},
+            headers={"User-Agent": "Midtown-CB-Intelligence/2.0"},
+            timeout=15,
+        ).json()
         if res:
-            return float(res[0]["lat"]), float(res[0]["lon"])
-    except Exception:
-        pass
-    return None, None
+            la, ln = float(res[0]["lat"]), float(res[0]["lon"])
+            b = MANHATTAN_BOUNDS
+            if b[0] <= la <= b[1] and b[2] <= ln <= b[3]:
+                lat, lng = la, ln
+            else:
+                print(f"   Geocode for '{address}' landed outside Manhattan; discarded")
+    except Exception as e:
+        print(f"   Geocode failed for '{address}': {e}")
+    _geo_cache[address] = (lat, lng)
+    return lat, lng
+
+
+# ---------------------------------------------------------------------------
+# Pipeline
+# ---------------------------------------------------------------------------
+def load_existing():
+    try:
+        with open(OUTPUT_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        # Records without a status came from the old scraper and were never read; drop them.
+        return {r["pdf_url"]: r for r in data
+                if isinstance(r, dict) and r.get("pdf_url") and r.get("status")}
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
+def build_record(link, client):
+    record = {
+        "id": f"{link['board'].lower()}-{hashlib.md5(link['pdf_url'].encode()).hexdigest()[:8]}",
+        "board": link["board"],
+        "date": link["date"] or "Undated",
+        "title": f"{link['board']} — {link['link_text'] or link['pdf_url'].rsplit('/', 1)[-1]}",
+        "pdf_url": link["pdf_url"],
+        "status": "not_analyzed",
+        "summary": "",
+        "committee": "",
+        "high_priority": False,
+        "high_priority_reason": "",
+        "items": [],
+        "locations": [],
+    }
+
+    try:
+        text = extract_pdf_text(link["pdf_url"])
+    except Exception as e:
+        print(f"   Could not download or open PDF: {e}")
+        record["status"] = "download_error"
+        return record
+
+    if len(text.strip()) < MIN_TEXT_CHARS:
+        record["status"] = "no_text"
+        return record
+
+    if not client:
+        return record
+
+    try:
+        ai = analyze_with_gemini(client, text)
+    except Exception as e:
+        record["status"] = "ai_error"
+        print(f"   {e}")
+        return record
+
+    norm_text = normalize(text)
+    items = []
+    for item in ai.get("items") or []:
+        if not isinstance(item, dict):
+            continue
+        item["verified"] = bool(item.get("evidence")) and normalize(item["evidence"]) in norm_text
+        items.append(item)
+
+    if ai.get("meeting_date"):
+        record["date"] = ai["meeting_date"]
+    record["status"] = "analyzed"
+    record["summary"] = ai.get("summary") or ""
+    record["committee"] = ai.get("meeting_type") or "Full Board"
+    record["items"] = items
+    record["high_priority"], record["high_priority_reason"] = flag_priority(items, text)
+
+    for item in items:
+        if item.get("address"):
+            lat, lng = geocode(item["address"])
+            record["locations"].append({
+                "address": item["address"],
+                "description": item.get("topic", ""),
+                "type": item.get("category", ""),
+                "action": item.get("action"),
+                "verified": item["verified"],
+                "lat": lat,
+                "lng": lng,
+            })
+
+    unverified = sum(1 for i in items if not i["verified"])
+    print(f"   Analyzed: {len(items)} items, {len(record['locations'])} addresses, "
+          f"{unverified} excerpts not found verbatim in the PDF")
+    return record
 
 
 def main():
-    print("Starting Community Board Scraper Pipeline...")
-    
-    # Initialize Gemini client
-    client = None
-    if GEMINI_API_KEY:
-        client = genai.Client(api_key=GEMINI_API_KEY)
-    else:
-        print("Warning: GEMINI_API_KEY environment variable not found. AI extraction will be skipped.")
+    print("Starting Community Board minutes pipeline")
+    client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
+    if not client:
+        print("WARNING: GEMINI_API_KEY is not set. Documents will be listed but not analyzed.")
 
-    all_records = []
-    
-    # 1. Scrape PDF links
-    for b in BOARDS:
-        print(f"Scraping {b['board']}...")
-        items = fetch_pdf_links(b)
-        # Limit processing to recent 3 items per board for efficiency
-        all_records.extend(items[:3])
+    existing = load_existing()
+    for rec in existing.values():  # reuse earlier geocodes
+        for loc in rec.get("locations", []):
+            if loc.get("lat") and loc.get("lng"):
+                _geo_cache[loc["address"]] = (loc["lat"], loc["lng"])
 
-    structured_dataset = []
+    for board in BOARDS:
+        if not board["url"]:
+            print(f"[{board['board']}] Skipped: no minutes page URL set in BOARDS")
+            continue
+        for link in fetch_pdf_links(board)[:PER_BOARD]:
+            prior = existing.get(link["pdf_url"])
+            if prior and prior.get("status") in ("analyzed", "no_text"):
+                print(f"[{board['board']}] Already processed: {link['pdf_url']}")
+                continue
+            print(f"[{board['board']}] Processing {link['date'] or 'undated'}: {link['pdf_url']}")
+            existing[link["pdf_url"]] = build_record(link, client)
 
-    # 2. Process items through Gemini & Geocoding
-    for idx, item in enumerate(all_records):
-        record_id = f"{item['board'].lower()}-{idx + 1}"
-        print(f"Processing item [{idx + 1}/{len(all_records)}]: {item['title']}")
-        
-        if client:
-            ai_data = analyze_with_gemini(client, item)
-        else:
-            ai_data = {
-                "summary": "Document retrieved from Community Board archive.",
-                "committee": "General",
-                "high_priority": False,
-                "high_priority_reason": "",
-                "locations": []
-            }
-
-        # Geocode locations if lat/lng are missing
-        for loc in ai_data.get("locations", []):
-            if not loc.get("lat") or not loc.get("lng"):
-                lat, lng = geocode_address(loc.get("address", ""))
-                loc["lat"] = lat
-                loc["lng"] = lng
-
-        record = {
-            "id": record_id,
-            "board": item["board"],
-            "date": item["date"],
-            "title": item["title"],
-            "summary": ai_data.get("summary", ""),
-            "pdf_url": item["pdf_url"],
-            "committee": ai_data.get("committee", "General"),
-            "high_priority": ai_data.get("high_priority", False),
-            "high_priority_reason": ai_data.get("high_priority_reason", ""),
-            "locations": ai_data.get("locations", [])
-        }
-        structured_dataset.append(record)
-
-    # 3. Create 'data' directory if it doesn't exist and save JSON
+    records = sorted(existing.values(), key=lambda r: r.get("date") or "", reverse=True)
     os.makedirs("data", exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(structured_dataset, f, indent=2)
+        json.dump(records, f, indent=2, ensure_ascii=False)
 
-    print(f"Successfully saved {len(structured_dataset)} records to {OUTPUT_FILE}")
+    counts = {}
+    for r in records:
+        counts[r["status"]] = counts.get(r["status"], 0) + 1
+    print(f"Saved {len(records)} records to {OUTPUT_FILE}: {counts}")
 
 
 if __name__ == "__main__":
