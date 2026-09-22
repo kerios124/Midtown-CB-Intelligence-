@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "cb4-ddbcae2c",
+    "board": "CB4",
+    "date": "2020-12",
+    "title": "CB4 — December 2020 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2021/03/December-2020-Full-Board-Minutes-Final.pdf",
+    "status": "ai_error",
+    "summary": "",
+    "committee": "",
+    "high_priority": false,
+    "high_priority_reason": "",
+    "items": [],
+    "locations": []
+  },
+  {
+    "id": "cb4-5e526d9b",
+    "board": "CB4",
+    "date": "2020-11",
+    "title": "CB4 — November 2020 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2020/12/11-November-2020-Minutes-final-w.record.pdf",
+    "status": "ai_error",
+    "summary": "",
+    "committee": "",
+    "high_priority": false,
+    "high_priority_reason": "",
+    "items": [],
+    "locations": []
+  },
+  {
+    "id": "cb4-d0ad3019",
+    "board": "CB4",
+    "date": "2020-10",
+    "title": "CB4 — October 2020 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2020/12/10-October-2020-Minutes-final-w.record-1.pdf",
+    "status": "ai_error",
+    "summary": "",
+    "committee": "",
+    "high_priority": false,
+    "high_priority_reason": "",
+    "items": [],
+    "locations": []
+  }
+]
