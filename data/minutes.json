@@ -1,44 +1,741 @@
 [
   {
-    "id": "cb4-ddbcae2c",
+    "id": "cb4-6a0184cc",
     "board": "CB4",
-    "date": "2020-12",
-    "title": "CB4 — December 2020 Minutes",
-    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2021/03/December-2020-Full-Board-Minutes-Final.pdf",
-    "status": "ai_error",
-    "summary": "",
-    "committee": "",
-    "high_priority": false,
-    "high_priority_reason": "",
-    "items": [],
-    "locations": []
+    "date": "2026-07-22",
+    "title": "CB4 — July 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/09/07-July-2026-MCB4-Full-Board-Meeting-Minutes-Final.pdf",
+    "status": "analyzed",
+    "summary": "The board considered and approved multiple resolutions regarding SLA liquor licenses, transportation initiatives, and land use applications. Key actions included approving a BSA application for residential development at 511 West 25th Street and authorizing the hiring of Stacie Johnson as District Manager.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: SLA liquor license application for Georgie's; ULURP / Land Use: UAP applications to HPD; BSA Variance: BSA application for residential development",
+    "items": [
+      {
+        "topic": "SLA liquor license application for Georgie's",
+        "category": "SLA Liquor License",
+        "address": "161 8th Avenue",
+        "action": "APPROVED",
+        "vote": null,
+        "evidence": "Item 04: Letter to SLA re 161 8th Avenue - Georgie's - Serial# 0370-261-42605 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "UAP applications to HPD",
+        "category": "ULURP / Land Use",
+        "address": "335 W 25th Street & 345 W 25th Street",
+        "action": "APPROVED",
+        "vote": null,
+        "evidence": "Item 15: Letter to HPD re 335 W 25th Street & 345 W 25th Street – UAP Applications APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "BSA application for residential development",
+        "category": "BSA Variance",
+        "address": "511 West 25th Street",
+        "action": "APPROVED",
+        "vote": null,
+        "evidence": "Item 17: Letter to BSA re 511 West 25th Street Application for Residential Development APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "6th Avenue Protected Bike Lane Project",
+        "category": "Transportation",
+        "address": null,
+        "action": "APPROVED",
+        "vote": null,
+        "evidence": "Item 19: Letter to DOT re 6th Avenue Protected Bike Lane Project APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Cannabis license application for MZDZ Corp.",
+        "category": "Cannabis License",
+        "address": "501 W. 57th Street",
+        "action": "APPROVED",
+        "vote": null,
+        "evidence": "Item 31: Letter to OCM and CCB re 501 W. 57th Street - MZDZ Corp. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Authorization to hire District Manager",
+        "category": "Other",
+        "address": null,
+        "action": "APPROVED",
+        "vote": null,
+        "evidence": "Item 34: Authorization to hire Stacie Johnson as District Manager APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "161 8th Avenue",
+        "description": "SLA liquor license application for Georgie's",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7424388,
+        "lng": -74.00084
+      },
+      {
+        "address": "335 W 25th Street & 345 W 25th Street",
+        "description": "UAP applications to HPD",
+        "type": "ULURP / Land Use",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "511 West 25th Street",
+        "description": "BSA application for residential development",
+        "type": "BSA Variance",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7495167,
+        "lng": -74.0038673
+      },
+      {
+        "address": "501 W. 57th Street",
+        "description": "Cannabis license application for MZDZ Corp.",
+        "type": "Cannabis License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7694132,
+        "lng": -73.9888239
+      }
+    ]
   },
   {
-    "id": "cb4-5e526d9b",
+    "id": "cb4-e0446322",
     "board": "CB4",
-    "date": "2020-11",
-    "title": "CB4 — November 2020 Minutes",
-    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2020/12/11-November-2020-Minutes-final-w.record.pdf",
-    "status": "ai_error",
-    "summary": "",
-    "committee": "",
-    "high_priority": false,
-    "high_priority_reason": "",
-    "items": [],
-    "locations": []
+    "date": "2026-06-03",
+    "title": "CB4 — June 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/08/06-MCB4-Full-Board-Meeting-Minutes-June-3-2026-Final-w.record.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 held a hybrid full board meeting to consider business liquor licenses, transportation requests, land use matters, and administrative actions. Highlights included approving a letter regarding a SLA application for 530 West 27th Street after extensive public comment, sending a BSA application for 511 West 25th Street back to committee, and passing a letter opposing Int. No. 322 regarding Community Board appointments.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: Letter to SLA re liquor license for IL Divino; SLA Liquor License: Letter to SLA re liquor license for WST27 LLC & Oberon Twenty-Seven LLC; ULURP / Land Use: Letter to HPD re UAP Application; ULURP / Land Use: Letter to HPD re Application for Article XI; BSA Variance: Letter to BSA re Application for Residential Development",
+    "items": [
+      {
+        "topic": "Letter to DOT re sidewalk application for IL Divino",
+        "category": "Transportation",
+        "address": "739 9th Avenue",
+        "action": "ratified",
+        "vote": "40-0-1-0",
+        "evidence": "Item 01: Letter to DOT re 739 9th Avenue - IL Divino - Application ID 20240802010258 - Sidewalk - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re liquor license for IL Divino",
+        "category": "SLA Liquor License",
+        "address": "739 9th Avenue",
+        "action": "approved",
+        "vote": "40-0-1-0",
+        "evidence": "Item 03: Letter to SLA re 739 9th Avenue - IL Divino - Serial# 0340-22-110097 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re liquor license for WST27 LLC & Oberon Twenty-Seven LLC",
+        "category": "SLA Liquor License",
+        "address": "530 W 27th Street",
+        "action": "approved",
+        "vote": "34-5-2-0",
+        "evidence": "Item 22: Letter to SLA re 530 W 27th Street - WST27 LLC & Oberon Twenty-Seven LLC APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to HPD re UAP Application",
+        "category": "ULURP / Land Use",
+        "address": "515 W 43rd Street",
+        "action": "tabled",
+        "vote": null,
+        "evidence": "Item 23: Letter to HPD re 515 W 43rd Street – UAP Application TABLED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to HPD re Application for Article XI",
+        "category": "ULURP / Land Use",
+        "address": "420 W 45th Street",
+        "action": "approved",
+        "vote": "40-0-1-0",
+        "evidence": "Item 24: Letter to HPD re 420 W 45th Street – Application for Article XI APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to DOE re Honoring Retirement of Principal Bob Bender of P.S. 11",
+        "category": "Other",
+        "address": "320 West 21 Street",
+        "action": "approved",
+        "vote": "40-0-1-0",
+        "evidence": "Item 25: Letter to DOE re Honoring Retirement of Principal Bob Bender of P.S. 11 – 320 West 21 Street APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to DOT re Public E-bike Charging Program",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": "40-0-1-0",
+        "evidence": "Item 28: Letter to DOT re Public E-bike Charging Program APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to LPC re GTS and Vanderbilt University Campus Application for Window replacement",
+        "category": "Landmarks",
+        "address": "408 West 21 Street",
+        "action": "approved",
+        "vote": "40-0-1-0",
+        "evidence": "Item 31: Letter to LPC re 408 West 21 Street GTS and Vanderbilt University Campus Application for Window replacement APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to BSA re Application for Residential Development",
+        "category": "BSA Variance",
+        "address": "511 West 25th Street",
+        "action": "sent back to committee",
+        "vote": null,
+        "evidence": "Item 32: Letter to BSA re 511 West 25th Street Application for Residential Development SENT BACK TO COMMITTEE",
+        "verified": true
+      },
+      {
+        "topic": "Letter to NYC City Council re Opposition to Int. No. 322",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": "40-0-1-0",
+        "evidence": "Item 33: Letter to NYC City Council re Opposition to Int. No. 322 — A Local Law to Give Council Members the Power to Make Community Board Appointments APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "739 9th Avenue",
+        "description": "Letter to DOT re sidewalk application for IL Divino",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7634587,
+        "lng": -73.9891866
+      },
+      {
+        "address": "739 9th Avenue",
+        "description": "Letter to SLA re liquor license for IL Divino",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7634587,
+        "lng": -73.9891866
+      },
+      {
+        "address": "530 W 27th Street",
+        "description": "Letter to SLA re liquor license for WST27 LLC & Oberon Twenty-Seven LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7507119,
+        "lng": -74.0037894
+      },
+      {
+        "address": "515 W 43rd Street",
+        "description": "Letter to HPD re UAP Application",
+        "type": "ULURP / Land Use",
+        "action": "tabled",
+        "verified": true,
+        "lat": 40.7607974,
+        "lng": -73.9959098
+      },
+      {
+        "address": "420 W 45th Street",
+        "description": "Letter to HPD re Application for Article XI",
+        "type": "ULURP / Land Use",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7606604,
+        "lng": -73.9924519
+      },
+      {
+        "address": "320 West 21 Street",
+        "description": "Letter to DOE re Honoring Retirement of Principal Bob Bender of P.S. 11",
+        "type": "Other",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7443214,
+        "lng": -74.0007013
+      },
+      {
+        "address": "408 West 21 Street",
+        "description": "Letter to LPC re GTS and Vanderbilt University Campus Application for Window replacement",
+        "type": "Landmarks",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7452828,
+        "lng": -74.0026687
+      },
+      {
+        "address": "511 West 25th Street",
+        "description": "Letter to BSA re Application for Residential Development",
+        "type": "BSA Variance",
+        "action": "sent back to committee",
+        "verified": true,
+        "lat": 40.7495167,
+        "lng": -74.0038673
+      }
+    ]
   },
   {
-    "id": "cb4-d0ad3019",
+    "id": "cb4-b830b09b",
     "board": "CB4",
-    "date": "2020-10",
-    "title": "CB4 — October 2020 Minutes",
-    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2020/12/10-October-2020-Minutes-final-w.record-1.pdf",
-    "status": "ai_error",
-    "summary": "",
-    "committee": "",
-    "high_priority": false,
-    "high_priority_reason": "",
-    "items": [],
-    "locations": []
+    "date": "2026-05-06",
+    "title": "CB4 — May 2026 Minute",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/08/05-MCB4-Full-Board-Meeting-Minutes-May-2026-Final-w.record.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 held its Full Board meeting on May 6, 2026, taking action on several license applications, transportation issues, and development projects. The Board approved resolutions concerning SLA liquor licenses, sidewalk applications, cannabis licensing, and a letter of support for Mountainside Treatment Center. Additionally, an application regarding a new residential building on West 22nd Street was sent back to committee.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: SLA liquor license for Chalong; ULURP / Land Use: UAP application for new residential building",
+    "items": [
+      {
+        "topic": "Sidewalk permit for The Trailer Park Lounge",
+        "category": "Transportation",
+        "address": "271 W 23rd Street",
+        "action": "APPROVED",
+        "vote": "42-0-0-0",
+        "evidence": "Item 03: Letter to DOT re 271 W 23rd Street - The Trailer Park Lounge - Application ID 20250330010001 - Sidewalk APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license for Chalong",
+        "category": "SLA Liquor License",
+        "address": "749 9th Avenue",
+        "action": "APPROVED",
+        "vote": "42-0-0-0",
+        "evidence": "Item 04: Letter to SLA re 749 9th Avenue - Chalong - Serial# 0340-23-128513 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Support for Mountainside Treatment Center expansion",
+        "category": "Other",
+        "address": "243 W 18th Street",
+        "action": "APPROVED",
+        "vote": "42-0-0-0",
+        "evidence": "Item 15: Letter of Support for 243 W 18th Street – Mountainside Treatment Center Expansion APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "New cannabis dispensary for Dalton Dispensary Inc.",
+        "category": "Cannabis License",
+        "address": "883 8th Avenue",
+        "action": "APPROVED",
+        "vote": "37-2-1-2",
+        "evidence": "Item 21: Letter to OCM and CCB re New Cannabis Dispensary for Dalton Dispensary Inc. – Firehouse at 883 8th Avenue (West 52/53 St.) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "UAP application for new residential building",
+        "category": "ULURP / Land Use",
+        "address": "273 West 22rd Street",
+        "action": "Sent Back to Committee",
+        "vote": null,
+        "evidence": "Item 22: Letter to HPD and Developer re UAP Application for new residential building at 273 West 22rd Street.- Sent Back to Committee",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "271 W 23rd Street",
+        "description": "Sidewalk permit for The Trailer Park Lounge",
+        "type": "Transportation",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7453212,
+        "lng": -73.9978083
+      },
+      {
+        "address": "749 9th Avenue",
+        "description": "SLA liquor license for Chalong",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7639563,
+        "lng": -73.9889775
+      },
+      {
+        "address": "243 W 18th Street",
+        "description": "Support for Mountainside Treatment Center expansion",
+        "type": "Other",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7416501,
+        "lng": -73.9990468
+      },
+      {
+        "address": "883 8th Avenue",
+        "description": "New cannabis dispensary for Dalton Dispensary Inc.",
+        "type": "Cannabis License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.763965,
+        "lng": -73.985008
+      },
+      {
+        "address": "273 West 22rd Street",
+        "description": "UAP application for new residential building",
+        "type": "ULURP / Land Use",
+        "action": "Sent Back to Committee",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      }
+    ]
+  },
+  {
+    "id": "cb4-8d01e44f",
+    "board": "CB4",
+    "date": "2026-03-31",
+    "title": "CB4 — April 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/05/04-April-2026-Full-Board-Meeting-Minutes-Final.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 held a hybrid full board meeting to vote on business licenses, land use scope comments, and municipal policy issues. Key actions included approving multiple SLA liquor and cannabis dispensary license applications, supporting sidewalk expansion projects, and adopting responses to the FY2027 preliminary budget.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: SLA License for Chelsea Square Diner; SLA Liquor License: SLA License for The Greek Kitchen; SLA Liquor License: SLA License for Aramark Services, Inc. & KPMG LLP; SLA Liquor License: SLA License for The Winters Coming LLC; SLA Liquor License: SLA License for KHP Midtown LLC; SLA Liquor License: SLA License for ERY North Tower OB Deck Member LLC et al.; ULURP / Land Use: Comments on Draft Scope of Work for Site K and Site 3HB; ULURP / Land Use: Comments on Brownfield Site Application at Elliot Chelsea NYCHA Development",
+    "items": [
+      {
+        "topic": "Enclosed Sidewalk Application for Chelsea Square Diner",
+        "category": "Transportation",
+        "address": "368 W 23rd Street",
+        "action": "APPROVED",
+        "vote": "37-1-1-0-0",
+        "evidence": "Item 01: Letter to DOT re 368 W 23rd Street - Chelsea Square Diner - Application ID 20260121010003 - Enclosed Sidewalk APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Enclosed Sidewalk Application for The Greek Kitchen",
+        "category": "Transportation",
+        "address": "889 10th Avenue",
+        "action": "APPROVED",
+        "vote": "37-1-0-0-0",
+        "evidence": "Item 02: Letter to DOT re 889 10th Avenue - The Greek Kitchen - Application ID 20260131010001 - Enclosed Sidewalk APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA License for Chelsea Square Diner",
+        "category": "SLA Liquor License",
+        "address": "368 W 23rd Street",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 03: Letter to SLA re 368 W 23rd Street - Chelsea Square Diner – Serial# 1125334 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA License for The Greek Kitchen",
+        "category": "SLA Liquor License",
+        "address": "889 10th Avenue",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 04: Letter to SLA re 889 10th Avenue - The Greek Kitchen – Serial# 0340-22-105265 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA License for Aramark Services, Inc. & KPMG LLP",
+        "category": "SLA Liquor License",
+        "address": "375 9th Avenue",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 05: Letter to SLA re 375 9th Avenue - Aramark Services, Inc. & KPMG LLP APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA License for The Winters Coming LLC",
+        "category": "SLA Liquor License",
+        "address": "204 7th Avenue",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 06: Letter to SLA re 204 7th Avenue - The Winters Coming LLC APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA License for KHP Midtown LLC",
+        "category": "SLA Liquor License",
+        "address": "310 W 38th Street",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 07: Letter to SLA re 310 W 38th Street - KHP Midtown LLC - Serial# 6073662 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA License for ERY North Tower OB Deck Member LLC et al.",
+        "category": "SLA Liquor License",
+        "address": "30 Hudson Yards",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 08: Letter to SLA re 30 Hudson Yards, Fls 5, 67 & 68 a-k-a 500 W 33rd Street - ERY North Tower OB Deck Member LLC",
+        "verified": true
+      },
+      {
+        "topic": "City Council Bill Int. 0655-2026 Amending Outdoor Dining Rules",
+        "category": "Transportation",
+        "address": null,
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 09: Letter to City Council re City Council Bill Int. 0655-2026 - Amending Outdoor Dining Rules APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Funding requests for Fountain House",
+        "category": "Budget",
+        "address": "425 West 47th Street",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 10: Letter of Support re Funding requests for Fountain House at 425 West 47th Street APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Restoration of Youth Gender Affirming Care at Mount Sinai and NYU Health Care Systems",
+        "category": "Other",
+        "address": null,
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 11: Letter to Mount Sinai and NYU Health Care Systems to restore Youth gender Affirming Care APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Funding needs at Food and Finance High School",
+        "category": "Budget",
+        "address": "525 West 50th Street",
+        "action": "TABLED",
+        "vote": "36-0-1-0-0",
+        "evidence": "Item 12: Letter to DOE re Funding needs at Food and Finance High School at 525 West 50 th Street - TABLED",
+        "verified": true
+      },
+      {
+        "topic": "Comments on Draft Scope of Work for Site K and Site 3HB",
+        "category": "ULURP / Land Use",
+        "address": "418 11th Avenue",
+        "action": "APPROVED",
+        "vote": "36-0-0-1-0",
+        "evidence": "Item 13: Letter to ESD re Comments on the Draft Scope of Work for Site K (418 11 th Avenue) and Site 3HB (400 11 th Avenue) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "9th Avenue Sidewalk Expansion Project between 34th - 51st Street",
+        "category": "Transportation",
+        "address": null,
+        "action": "APPROVED",
+        "vote": "36-0-0-0-0",
+        "evidence": "Item 14: Letter to DOT re 9 th Avenue Sidewalk Expansion Project between 34 th – 51 st Street APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Bus Terminal Replacement Project construction impacts and mitigation strategies",
+        "category": "Transportation",
+        "address": null,
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 15: Letter to PANYNJ & DEP re Bus Terminal Replacement Project construction impacts and mitigation strategies APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Reinstalling taxi stand in front of 165 9th Avenue",
+        "category": "Transportation",
+        "address": "165 9th Avenue",
+        "action": "APPROVED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 16: Letter to DOT re Reinstalling the taxi stand in front of 165 9 th Avenue APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Renewal of Cannabis Dispensary License for Nickl's – Planet 51 LLC",
+        "category": "Cannabis License",
+        "address": "797 8th Avenue",
+        "action": "APPROVED",
+        "vote": "33-1-0-2-0",
+        "evidence": "Item 17: Letter to NYS OCM and CCB re Renewal of Cannabis Dispensary License at 797 8 th Avenue - Nickl’s – Planet 51 LLC (West 48/49 Street) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Renewal of Cannabis Dispensary License for Bright Elephant – Flynnstoned Cannabis Company",
+        "category": "Cannabis License",
+        "address": "206 8th Avenue",
+        "action": "APPROVED",
+        "vote": "33-0-1-2-0",
+        "evidence": "Item 18: Letter to Letter to NYS OCM and CCB re Renewal of Cannabis Dispensary License at 206 8 th Avenue - Bright Elephant – Flynnstoned Cannabis Company APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Response to Preliminary Budget for Fiscal Year 2027",
+        "category": "Budget",
+        "address": null,
+        "action": "RATIFIED",
+        "vote": "36-1-1-1-0",
+        "evidence": "Item 19: Letter to Mayor’s Office re Response to Preliminary Budget for Fiscal Year 2027 RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Comments on Brownfield Site Application at Elliot Chelsea NYCHA Development",
+        "category": "ULURP / Land Use",
+        "address": "441 West 26 Street",
+        "action": "RATIFIED",
+        "vote": "37-0-0-0-0",
+        "evidence": "Item 20: Letter to NYS DEC re Comments on Brownfield Site Application at 441 West 26 Street – Elliot Chelsea NYCHA Development RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Scaffolding Status at 343 W. 47th Street",
+        "category": "Other",
+        "address": "343 W. 47th Street",
+        "action": "APPROVED",
+        "vote": "36-0-0-1-0",
+        "evidence": "Item 21: WPE Letter to DOB/Owner re 343 W. 47 th Street (8/9) Scaffolding Status APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "368 W 23rd Street",
+        "description": "Enclosed Sidewalk Application for Chelsea Square Diner",
+        "type": "Transportation",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7462164,
+        "lng": -74.0012771
+      },
+      {
+        "address": "889 10th Avenue",
+        "description": "Enclosed Sidewalk Application for The Greek Kitchen",
+        "type": "Transportation",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7697543,
+        "lng": -73.9883234
+      },
+      {
+        "address": "368 W 23rd Street",
+        "description": "SLA License for Chelsea Square Diner",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7462164,
+        "lng": -74.0012771
+      },
+      {
+        "address": "889 10th Avenue",
+        "description": "SLA License for The Greek Kitchen",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7697543,
+        "lng": -73.9883234
+      },
+      {
+        "address": "375 9th Avenue",
+        "description": "SLA License for Aramark Services, Inc. & KPMG LLP",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7519936,
+        "lng": -73.9979823
+      },
+      {
+        "address": "204 7th Avenue",
+        "description": "SLA License for The Winters Coming LLC",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7432822,
+        "lng": -73.9963608
+      },
+      {
+        "address": "310 W 38th Street",
+        "description": "SLA License for KHP Midtown LLC",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7549537,
+        "lng": -73.9924676
+      },
+      {
+        "address": "30 Hudson Yards",
+        "description": "SLA License for ERY North Tower OB Deck Member LLC et al.",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.753983,
+        "lng": -74.0006028
+      },
+      {
+        "address": "425 West 47th Street",
+        "description": "Funding requests for Fountain House",
+        "type": "Budget",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7621567,
+        "lng": -73.9912753
+      },
+      {
+        "address": "525 West 50th Street",
+        "description": "Funding needs at Food and Finance High School",
+        "type": "Budget",
+        "action": "TABLED",
+        "verified": true,
+        "lat": 40.7655802,
+        "lng": -73.9929433
+      },
+      {
+        "address": "418 11th Avenue",
+        "description": "Comments on Draft Scope of Work for Site K and Site 3HB",
+        "type": "ULURP / Land Use",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7572703,
+        "lng": -74.000777
+      },
+      {
+        "address": "165 9th Avenue",
+        "description": "Reinstalling taxi stand in front of 165 9th Avenue",
+        "type": "Transportation",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7445419,
+        "lng": -74.0030511
+      },
+      {
+        "address": "797 8th Avenue",
+        "description": "Renewal of Cannabis Dispensary License for Nickl's – Planet 51 LLC",
+        "type": "Cannabis License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7613712,
+        "lng": -73.987129
+      },
+      {
+        "address": "206 8th Avenue",
+        "description": "Renewal of Cannabis Dispensary License for Bright Elephant – Flynnstoned Cannabis Company",
+        "type": "Cannabis License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.743595,
+        "lng": -73.9993117
+      },
+      {
+        "address": "441 West 26 Street",
+        "description": "Comments on Brownfield Site Application at Elliot Chelsea NYCHA Development",
+        "type": "ULURP / Land Use",
+        "action": "RATIFIED",
+        "verified": true,
+        "lat": 40.7495539,
+        "lng": -74.0016225
+      },
+      {
+        "address": "343 W. 47th Street",
+        "description": "Scaffolding Status at 343 W. 47th Street",
+        "type": "Other",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.76133,
+        "lng": -73.989228
+      }
+    ]
   }
 ]
