@@ -737,5 +737,519 @@
         "lng": -73.989228
       }
     ]
+  },
+  {
+    "id": "cb4-aae1b2d2",
+    "board": "CB4",
+    "date": "2026-03",
+    "title": "CB4 — March 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/04/03-March-2026-Full-Board-Meeting-Minutes-Final-w.record.pdf",
+    "status": "ai_error",
+    "summary": "",
+    "committee": "",
+    "high_priority": false,
+    "high_priority_reason": "",
+    "items": [],
+    "locations": []
+  },
+  {
+    "id": "cb4-847ba3c3",
+    "board": "CB4",
+    "date": "2026-02-04",
+    "title": "CB4 — February 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/04/02-Feb-2026-MCB4-Full-Board-Meeting-Minutes-Final.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 held its Full Board meeting on February 4, 2026. The board voted to approve multiple items regarding SLA liquor licenses, transportation plans, and land use applications for DeWitt Clinton Park North. Additionally, executive resolutions were approved supporting state legislation and addressing the Hudson River Park Trust parking lot contract at Pier 40.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: SLA liquor license application for 42 Hospitality LLC; SLA Liquor License: SLA liquor license application for The Irish Repertory Theatre Company Inc.; SLA Liquor License: SLA liquor license application for Columbus Bar LLC and Parkview Lounge LLC; ULURP / Land Use: Response to DEIS for DeWitt Clinton Park North Project; ULURP / Land Use: Response to Land Use (ULURP) Application for DeWitt Clinton Park North",
+    "items": [
+      {
+        "topic": "SLA liquor license application for 42 Hospitality LLC",
+        "category": "SLA Liquor License",
+        "address": "512 W 42nd Street",
+        "action": "approved",
+        "vote": "37-1-0-0-0",
+        "evidence": "Item 01: Letter to SLA re 512 W 42nd Street-42 Hospitality LLC APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for The Irish Repertory Theatre Company Inc.",
+        "category": "SLA Liquor License",
+        "address": "132 W 22nd Street",
+        "action": "approved",
+        "vote": "36-3-0-0-1",
+        "evidence": "Item 02: Letter to SLA re 132 W 22nd Street-The Irish Repertory Theatre Company Inc. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Columbus Bar LLC and Parkview Lounge LLC",
+        "category": "SLA Liquor License",
+        "address": "10 Columbus Circle, Space k4A",
+        "action": "approved",
+        "vote": "36-0-0-0-1",
+        "evidence": "Item 03: Letter to SLA re 10 Columbus Circle, Space k4A- Columbus Bar LLC and Parkview Lounge LLC as mgr APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Response to DEIS for DeWitt Clinton Park North Project",
+        "category": "ULURP / Land Use",
+        "address": "801 11th Avenue & 629 W. 54th Street",
+        "action": "approved",
+        "vote": "36-0-0-0-1",
+        "evidence": "Item 04: Letter to DCP re DeWitt Clinton Park North–801 11th Avenue & 629 W. 54th Street APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Blue Highways Design at Pier 79",
+        "category": "Transportation",
+        "address": "Pier 79",
+        "action": "approved",
+        "vote": "35-0-0-1-1",
+        "evidence": "Item 05: Letter to DOT & EDC re Blue Highways Design at Pier 79 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Intercity Bus Permit for Taxi Tours Inc d/b/a Big Bus Tours New York",
+        "category": "Transportation",
+        "address": "12th Avenue (48/49)",
+        "action": "approved",
+        "vote": "36-0-0-0-1",
+        "evidence": "Item 06: Letter to DOT re Intercity Bus Permit for Taxi Tours Inc d/b/a Big Bus Tours New York at 12th Avenue (48/49) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Improvements to 57th Street & 11th Avenue",
+        "category": "Transportation",
+        "address": "57th Street & 11th Avenue",
+        "action": "approved",
+        "vote": "36-0-0-0-1",
+        "evidence": "Item 07: Letter to DOT re Improvements to 57th Street & 11th Avenue APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Support for M.E.L.T. Act and R.A.D.A.R. Act",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": "36-0-0-0-1",
+        "evidence": "Item 08: Letter to NYS Assembly and Senate re Support for M.E.L.T. (Mandating End of Lawless Tactics) Act and R.A.D.A.R. (Reporting of Arrests, Detentions, Actions, and Removals) Act APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Hudson River Park Trust parking lot contract at Pier 40 with Immigration and Customs Enforcement",
+        "category": "Other",
+        "address": "Pier 40",
+        "action": "approved",
+        "vote": "34-0-0-2-1",
+        "evidence": "Item 09: Letter to Elected Representatives re Hudson River Park Trust parking lot contract at Pier 40 with Immigration and Customs Enforcement APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Restoring funding to Hudson River Tunnel Project",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": "32-0-0-4-1",
+        "evidence": "Item 10: Letter to GDC re Restoring funding to Hudson River Tunnel Project APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Response to Land Use (ULURP) Application for DeWitt Clinton Park North",
+        "category": "ULURP / Land Use",
+        "address": "801 11th Avenue & 629 W 54th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Item 11. Letter to DCP re Response to Land Use (ULURP) Application for DeWitt Clinton Park North - 801 11th Avenue & 629 W 54th Street APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "512 W 42nd Street",
+        "description": "SLA liquor license application for 42 Hospitality LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.759814,
+        "lng": -73.996142
+      },
+      {
+        "address": "132 W 22nd Street",
+        "description": "SLA liquor license application for The Irish Repertory Theatre Company Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7426192,
+        "lng": -73.9947633
+      },
+      {
+        "address": "10 Columbus Circle, Space k4A",
+        "description": "SLA liquor license application for Columbus Bar LLC and Parkview Lounge LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "801 11th Avenue & 629 W. 54th Street",
+        "description": "Response to DEIS for DeWitt Clinton Park North Project",
+        "type": "ULURP / Land Use",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "Pier 79",
+        "description": "Blue Highways Design at Pier 79",
+        "type": "Transportation",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7797298,
+        "lng": -73.9904748
+      },
+      {
+        "address": "12th Avenue (48/49)",
+        "description": "Intercity Bus Permit for Taxi Tours Inc d/b/a Big Bus Tours New York",
+        "type": "Transportation",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7724666,
+        "lng": -73.9934342
+      },
+      {
+        "address": "57th Street & 11th Avenue",
+        "description": "Improvements to 57th Street & 11th Avenue",
+        "type": "Transportation",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.770108,
+        "lng": -73.9917173
+      },
+      {
+        "address": "Pier 40",
+        "description": "Hudson River Park Trust parking lot contract at Pier 40 with Immigration and Customs Enforcement",
+        "type": "Other",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7294572,
+        "lng": -74.0127502
+      },
+      {
+        "address": "801 11th Avenue & 629 W 54th Street",
+        "description": "Response to Land Use (ULURP) Application for DeWitt Clinton Park North",
+        "type": "ULURP / Land Use",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      }
+    ]
+  },
+  {
+    "id": "cb4-f313cd46",
+    "board": "CB4",
+    "date": "2026-01-07",
+    "title": "CB4 — January 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/02/01-January-2026-Full-Board-Meeting-Minutes-Final-w.record.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 addressed multiple business license and SLA liquor license applications, as well as sidewalk permits. The board approved letters regarding the Manhattan Cruise Terminal Master Plan, the 2026 Solid Waste Management Plan, and cannabis operator notifications. Additionally, transportation items were approved, including a street co-naming for La Nacional – Little Spain and the 9th Avenue Super Sidewalk project.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: Letter to SLA re 515 W 18th Street - Cucina Alba; SLA Liquor License: Letter to SLA re 667 10th Avenue - 667 Tenth Avenue Corp.; SLA Liquor License: Letter to SLA re 78 7th Avenue - Charlotte Chelsea Inc.; SLA Liquor License: Letter to SLA re 113-117 W. 24th Street - Mocha 24th LLC, Mocha 24th Operating LLC, Chelsea 24th; SLA Liquor License: Letter to SLA re 325 W. 33rd Street - PENN 33rd LLC, PENN 33rd Operating LLC, Five Points Manager LLC; SLA Liquor License: Letter to SLA re 367 W. 36th Street - Qingyun Inc.; SLA Liquor License: Letter to SLA re 409 W 14th Street - Stre",
+    "items": [
+      {
+        "topic": "Letter to DOT re 515 W 18th Street - Cucina Alba Sidewalk Application",
+        "category": "Transportation",
+        "address": "515 W 18th Street",
+        "action": "ratified",
+        "vote": "44-0-0-0",
+        "evidence": "Item 01: Letter to DOT re 515 W 18th Street - Cucina Alba - Application ID 20241122010001 - Sidewalk – RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to DOT re 667 10th Avenue - Dive Bar Lounge Sidewalk Application",
+        "category": "Transportation",
+        "address": "667 10th Avenue",
+        "action": "ratified",
+        "vote": "44-0-0-0",
+        "evidence": "Item 02: Letter to DOT re 667 10th Avenue - Dive Bar Lounge - Application ID 20240803010106 - Sidewalk – RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 515 W 18th Street - Cucina Alba",
+        "category": "SLA Liquor License",
+        "address": "515 W 18th Street",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 03: Letter to SLA re515 W 18th Street - Cucina Alba – Serial# 0340-22-112054 – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 667 10th Avenue - 667 Tenth Avenue Corp.",
+        "category": "SLA Liquor License",
+        "address": "667 10th Avenue",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 04: Letter to SLA re 667 10th Avenue – 667 Tenth Avenue Corp. – Serial# 0370-24-110939 – APPROVED",
+        "verified": false
+      },
+      {
+        "topic": "Letter to SLA re 78 7th Avenue - Charlotte Chelsea Inc.",
+        "category": "SLA Liquor License",
+        "address": "78 7th Avenue",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 05: Letter to SLA re 78 7th Avenue - Charlotte Chelsea Inc. – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 113-117 W. 24th Street - Mocha 24th LLC, Mocha 24th Operating LLC, Chelsea 24th",
+        "category": "SLA Liquor License",
+        "address": "113-117 W. 24th Street",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 06: Letter to SLA re 113-117 W. 24th Street - Mocha 24th LLC, Mocha 24th Operating LLC, Chelsea 24th – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 325 W. 33rd Street - PENN 33rd LLC, PENN 33rd Operating LLC, Five Points Manager LLC",
+        "category": "SLA Liquor License",
+        "address": "325 W. 33rd Street",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 07: Letter to SLA re 325 W. 33rd Street - PENN 33rd LLC, PENN 33rd Operating LLC, Five Points Manager LLC – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 367 W. 36th Street - Qingyun Inc.",
+        "category": "SLA Liquor License",
+        "address": "367 W. 36th Street",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 08: Letter to SLA re 367 W. 36th Street - Qingyun Inc. – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 409 W 14th Street - Street Art & Graffiti LLC",
+        "category": "SLA Liquor License",
+        "address": "409 W 14th Street",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 09: Letter to SLA re 409 W 14th Street - Street Art & Graffiti LLC – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 515 W 38th Street - ABV Hospitality LLC.",
+        "category": "SLA Liquor License",
+        "address": "515 W 38th Street",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 10: Letter to SLA re 515 W 38th Street - ABV Hospitality LLC. – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 539 9th Avenue - Homemade Taqueria V-A Corp",
+        "category": "SLA Liquor License",
+        "address": "539 9th Avenue",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 11: Letter to SLA re 539 9th Avenue - Homemade Taqueria V-A Corp – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re 626 10th Avenue - 622 10th Avenue - 44 & X Hell's Kitchen Corp.",
+        "category": "SLA Liquor License",
+        "address": "626 10th Avenue",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 12: Letter to SLA re 626 10th Avenue - 622 10th Avenue - 44 & X Hell's Kitchen Corp. – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to EDC re Addressing Concerns with the Manhattan Cruise Terminal Master Plan",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 13: Letter to EDC re Addressing Concerns with the Manhattan Cruise Terminal Master Plan – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to DSNY re the 2026 Solid Waste Management Plan",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 14: Letter to DSNY re the 2026 Solid Waste Management Plan – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to City Council in Support of a Street Co-Naming honoring La Nacional – Little Spain",
+        "category": "Transportation",
+        "address": "N/E/C 14th Street & 8th Avenue",
+        "action": "approved",
+        "vote": "43-1-0-0",
+        "evidence": "Item 15: Letter to City Council in Support of a Street Co-Naming honoring La Nacional – Little Spain at the N/E/C 14th Street & 8th Avenue – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to DOT re 9th Avenue Super Sidewalk",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": "37-7-0-0",
+        "evidence": "Item 16: Letter to DOT re 9thAvenue Super Sidewalk – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to DOT re Parking Regulation Change at West 18th Street (10/11 Aves)",
+        "category": "Transportation",
+        "address": "West 18th Street (10/11 Aves)",
+        "action": "approved",
+        "vote": "44-0-0-0",
+        "evidence": "Item 17: Letter to DOT re Parking Regulation Change at West 18th Street (10/11 Aves) – APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to OCM and CCB re Notification to the community when there is a change in operator",
+        "category": "Cannabis License",
+        "address": null,
+        "action": "approved",
+        "vote": "42-0-1-1",
+        "evidence": "Item 18: Letter to OCM and CCB re Notification to the community when there is a change in operator – APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "515 W 18th Street",
+        "description": "Letter to DOT re 515 W 18th Street - Cucina Alba Sidewalk Application",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7451293,
+        "lng": -74.0067795
+      },
+      {
+        "address": "667 10th Avenue",
+        "description": "Letter to DOT re 667 10th Avenue - Dive Bar Lounge Sidewalk Application",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7627758,
+        "lng": -73.9933967
+      },
+      {
+        "address": "515 W 18th Street",
+        "description": "Letter to SLA re 515 W 18th Street - Cucina Alba",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7451293,
+        "lng": -74.0067795
+      },
+      {
+        "address": "667 10th Avenue",
+        "description": "Letter to SLA re 667 10th Avenue - 667 Tenth Avenue Corp.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": false,
+        "lat": 40.7627758,
+        "lng": -73.9933967
+      },
+      {
+        "address": "78 7th Avenue",
+        "description": "Letter to SLA re 78 7th Avenue - Charlotte Chelsea Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.739391,
+        "lng": -73.9992
+      },
+      {
+        "address": "113-117 W. 24th Street",
+        "description": "Letter to SLA re 113-117 W. 24th Street - Mocha 24th LLC, Mocha 24th Operating LLC, Chelsea 24th",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7462707,
+        "lng": -73.9996292
+      },
+      {
+        "address": "325 W. 33rd Street",
+        "description": "Letter to SLA re 325 W. 33rd Street - PENN 33rd LLC, PENN 33rd Operating LLC, Five Points Manager LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7522599,
+        "lng": -73.9951162
+      },
+      {
+        "address": "367 W. 36th Street",
+        "description": "Letter to SLA re 367 W. 36th Street - Qingyun Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7546284,
+        "lng": -73.9949046
+      },
+      {
+        "address": "409 W 14th Street",
+        "description": "Letter to SLA re 409 W 14th Street - Street Art & Graffiti LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7413925,
+        "lng": -74.0060005
+      },
+      {
+        "address": "515 W 38th Street",
+        "description": "Letter to SLA re 515 W 38th Street - ABV Hospitality LLC.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7574378,
+        "lng": -73.9978381
+      },
+      {
+        "address": "539 9th Avenue",
+        "description": "Letter to SLA re 539 9th Avenue - Homemade Taqueria V-A Corp",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7571191,
+        "lng": -73.9938012
+      },
+      {
+        "address": "626 10th Avenue",
+        "description": "Letter to SLA re 626 10th Avenue - 622 10th Avenue - 44 & X Hell's Kitchen Corp.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7610811,
+        "lng": -73.9941852
+      },
+      {
+        "address": "N/E/C 14th Street & 8th Avenue",
+        "description": "Letter to City Council in Support of a Street Co-Naming honoring La Nacional – Little Spain",
+        "type": "Transportation",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "West 18th Street (10/11 Aves)",
+        "description": "Letter to DOT re Parking Regulation Change at West 18th Street (10/11 Aves)",
+        "type": "Transportation",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      }
+    ]
   }
 ]
