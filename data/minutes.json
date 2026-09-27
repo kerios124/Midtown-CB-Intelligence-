@@ -741,16 +741,135 @@
   {
     "id": "cb4-aae1b2d2",
     "board": "CB4",
-    "date": "2026-03",
+    "date": "2026-03-04",
     "title": "CB4 — March 2026 Minutes",
     "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/04/03-March-2026-Full-Board-Meeting-Minutes-Final-w.record.pdf",
-    "status": "ai_error",
-    "summary": "",
-    "committee": "",
-    "high_priority": false,
-    "high_priority_reason": "",
-    "items": [],
-    "locations": []
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 held its Full Board meeting on March 4, 2026, to vote on various business licenses, land use, and public safety matters. The board approved multiple letters regarding liquor and cannabis licenses, land use comments for brownfield sites, and local infrastructure concerns. However, a proposed letter to the NYC Council regarding Intro 0655-2026 on roadway and sidewalk cafes was not ratified and was referred back to committee.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: Letter to SLA regarding Central Park Tavern; ULURP / Land Use: Comments on Brownfield site at Elliot Chelsea Campus",
+    "items": [
+      {
+        "topic": "Letter to SLA regarding Central Park Tavern",
+        "category": "SLA Liquor License",
+        "address": "327 W 57th Street",
+        "action": "APPROVED",
+        "vote": "45-0-0-0",
+        "evidence": "Item 02: Letter to SLA re 327 W 57th Street - Central Park Tavern APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to LPC regarding entrances",
+        "category": "Landmarks",
+        "address": "549 W 26th Street",
+        "action": "APPROVED",
+        "vote": "44-0-0-1",
+        "evidence": "Item 11: Letter to LPC re 549 W 26th Street – Entrances APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to OCM re Royal Leaf NY LLC cannabis license",
+        "category": "Cannabis License",
+        "address": "525 West 23rd Street",
+        "action": "APPROVED",
+        "vote": "38-6-0-1",
+        "evidence": "Item 17: Letter to OCM re 525 West 23rd Street – Royal Leaf NY LLC APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Comments on Brownfield site at Elliot Chelsea Campus",
+        "category": "ULURP / Land Use",
+        "address": "401 West 19th Street",
+        "action": "RATIFIED",
+        "vote": "42-3-0-0",
+        "evidence": "Item 20: CLU Committee - Letter to the NYS DEC and NYCHA Development team re Comments of Brownfield site at 401 West 19th Street (Ellliot Chelsea Campus) - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to NYC Council re Intro 0655-2026 expanding roadway and sidewalk cafes",
+        "category": "Other",
+        "address": null,
+        "action": "REFERRED BACK TO COMMITTEE AND WRITE CITY COUNCIL LETTER WAS NOT RATIFIED",
+        "vote": "40-3-1-1",
+        "evidence": "Item 22: BLP Committee - Letter to NYC Council re Intro 0655-2026 - In relation to expanding access to roadway and sidewalk cafes - REFERRED BACK TO COMMITTEE",
+        "verified": true
+      },
+      {
+        "topic": "Inquiry about amenity fee to 421A tenants at The Set",
+        "category": "Other",
+        "address": "455 10th Avenue",
+        "action": "APPROVED",
+        "vote": "35-8-1-1",
+        "evidence": "Item 26: HHHS Letter to Related re Inquiry about amenity fee to 421A tenants at 455 10th Avenue – The Set APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter regarding scaffolding collapse next to Ramon Aponte Playground",
+        "category": "Other",
+        "address": "343 W. 47th St.",
+        "action": "APPROVED",
+        "vote": "44-0-0-1",
+        "evidence": "Item 28: WPE Letter to Electeds, NYC Parks, Building Owner, & DOB re Scaffolding collapse next to Ramon Aponte Playground – (343 W. 47th St. Building) APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "327 W 57th Street",
+        "description": "Letter to SLA regarding Central Park Tavern",
+        "type": "SLA Liquor License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7674456,
+        "lng": -73.9840489
+      },
+      {
+        "address": "549 W 26th Street",
+        "description": "Letter to LPC regarding entrances",
+        "type": "Landmarks",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7506232,
+        "lng": -74.0046439
+      },
+      {
+        "address": "525 West 23rd Street",
+        "description": "Letter to OCM re Royal Leaf NY LLC cannabis license",
+        "type": "Cannabis License",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7483434,
+        "lng": -74.004978
+      },
+      {
+        "address": "401 West 19th Street",
+        "description": "Comments on Brownfield site at Elliot Chelsea Campus",
+        "type": "ULURP / Land Use",
+        "action": "RATIFIED",
+        "verified": true,
+        "lat": 40.7443909,
+        "lng": -74.003639
+      },
+      {
+        "address": "455 10th Avenue",
+        "description": "Inquiry about amenity fee to 421A tenants at The Set",
+        "type": "Other",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7556094,
+        "lng": -73.9988695
+      },
+      {
+        "address": "343 W. 47th St.",
+        "description": "Letter regarding scaffolding collapse next to Ramon Aponte Playground",
+        "type": "Other",
+        "action": "APPROVED",
+        "verified": true,
+        "lat": 40.76133,
+        "lng": -73.989228
+      }
+    ]
   },
   {
     "id": "cb4-847ba3c3",
