@@ -1,5 +1,129 @@
 [
   {
+    "id": "cb4-85455678",
+    "board": "CB4",
+    "date": "2026-09-02",
+    "title": "CB4 — September 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/10/09-September-2026-Full-Board-Minutes-Final.pdf",
+    "status": "analyzed",
+    "summary": "The Manhattan Community Board 4 held its Full Board meeting to review business licenses, cannabis event applications, and district budget priorities. The board voted to ratify and approve various State Liquor Authority licenses and local cannabis showcase events. Public hearings and presentations were also held regarding the Fiscal Year 2028 Statement of District Needs.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: Letter to SLA re Manhattan West Coast LLC; SLA Liquor License: Letter to SLA re Suki Desu Inc.",
+    "items": [
+      {
+        "topic": "Letter to DOT re roadway application for Melting Pot NY LLC",
+        "category": "Transportation",
+        "address": "196 8th Avenue",
+        "action": "ratified",
+        "vote": null,
+        "evidence": "Item 01: Letter to DOT re 196 8th Avenue - Melting Pot NY LLC - Application ID20260721010001 - Roadway - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re Manhattan West Coast LLC",
+        "category": "SLA Liquor License",
+        "address": "450 W 33rd Street",
+        "action": "ratified",
+        "vote": null,
+        "evidence": "Item 02: Letter to SLA re 5 Manhattan West aka 450 W 33rd Street, Unit #6 - Manhattan West Coast LLC. - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to SLA re Suki Desu Inc.",
+        "category": "SLA Liquor License",
+        "address": "709 9th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Item 04: Letter to SLA re 709 9th Avenue, North Store - Suki Desu Inc. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to OCM & CCB re Mid-Town Farm Stand",
+        "category": "Cannabis License",
+        "address": "163 8th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Item 13: Letter to OCM & CCB re 163 8th Avenue – Mid-Town Farm Stand - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to OCM & CCB re MZDZ Corp.",
+        "category": "Cannabis License",
+        "address": "501 W. 57th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Item 14: Letter to OCM & CCB re 501 W. 57th Street – MZDZ Corp. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Letter to Cannabis NYC, NYC SBS re Cannabis Showcase Event – Cannaisseur NY LLC dba Poppin",
+        "category": "Cannabis License",
+        "address": "456 11th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Item 15: Letter to Cannabis NYC, NYC SBS re Cannabis Showcase Event – Cannaisseur NY LLC dba Poppin on October 8-11 at 456 11th Avenue - APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "196 8th Avenue",
+        "description": "Letter to DOT re roadway application for Melting Pot NY LLC",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7432195,
+        "lng": -73.9996794
+      },
+      {
+        "address": "450 W 33rd Street",
+        "description": "Letter to SLA re Manhattan West Coast LLC",
+        "type": "SLA Liquor License",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7530239,
+        "lng": -73.9995138
+      },
+      {
+        "address": "709 9th Avenue",
+        "description": "Letter to SLA re Suki Desu Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7627027,
+        "lng": -73.9899079
+      },
+      {
+        "address": "163 8th Avenue",
+        "description": "Letter to OCM & CCB re Mid-Town Farm Stand",
+        "type": "Cannabis License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7425268,
+        "lng": -74.0008617
+      },
+      {
+        "address": "501 W. 57th Street",
+        "description": "Letter to OCM & CCB re MZDZ Corp.",
+        "type": "Cannabis License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7694132,
+        "lng": -73.9888239
+      },
+      {
+        "address": "456 11th Avenue",
+        "description": "Letter to Cannabis NYC, NYC SBS re Cannabis Showcase Event – Cannaisseur NY LLC dba Poppin",
+        "type": "Cannabis License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.757761,
+        "lng": -74.000411
+      }
+    ]
+  },
+  {
     "id": "cb4-6a0184cc",
     "board": "CB4",
     "date": "2026-07-22",
