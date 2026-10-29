@@ -124,6 +124,292 @@
     ]
   },
   {
+    "id": "cb4-d30dd3f3",
+    "board": "CB4",
+    "date": "2026-09-02",
+    "title": "CB4 — September 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/10/09-September-2026-Full-Board-Minutes-Final-1.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 held a public hearing on the FY 2028 district needs and budget requests during its full board meeting. The board voted to approve and ratify multiple business licensing matters, including state liquor license applications, a roadway application, and cannabis applications. Board members and elected officials also provided community updates regarding public health, housing, and local events.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: SLA liquor license application for Manhattan West Coast LLC (Unit #6); SLA Liquor License: SLA liquor license application for Manhattan West Coast LLC (Terrace); SLA Liquor License: SLA liquor license application for Suki Desu Inc.; SLA Liquor License: SLA liquor license application for Omakase by Korami NY Inc.; SLA Liquor License: SLA liquor license application for Jaroensrubb Inc.; SLA Liquor License: SLA liquor license application for Ruay Mak Jing Corp.; SLA Liquor License: SLA liquor license application for Arts 57 NYC LLC.; SLA Liquor License: SLA liquor license appl",
+    "items": [
+      {
+        "topic": "DOT roadway application for Melting Pot NY LLC",
+        "category": "Transportation",
+        "address": "196 8th Avenue",
+        "action": "ratified",
+        "vote": "37-1-0-0",
+        "evidence": "Letter to DOT re 196 8th Avenue - Melting Pot NY LLC - Application ID20260721010001 - Roadway - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Manhattan West Coast LLC (Unit #6)",
+        "category": "SLA Liquor License",
+        "address": "5 Manhattan West aka 450 W 33rd Street, Unit #6",
+        "action": "ratified",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 5 Manhattan West aka 450 W 33rd Street, Unit #6 - Manhattan West Coast LLC. - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Manhattan West Coast LLC (Terrace)",
+        "category": "SLA Liquor License",
+        "address": "5 Manhattan West aka 450 W 33rd Street, Terrace",
+        "action": "ratified",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 5 Manhattan West aka 450 W 33rd Street, Terrace - Manhattan West Coast LLC. - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Suki Desu Inc.",
+        "category": "SLA Liquor License",
+        "address": "709 9th Avenue, North Store",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 709 9th Avenue, North Store - Suki Desu Inc. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Omakase by Korami NY Inc.",
+        "category": "SLA Liquor License",
+        "address": "400 W 50th Street",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 400 W 50th Street - Omakase by Korami NY Inc. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Jaroensrubb Inc.",
+        "category": "SLA Liquor License",
+        "address": "321 W 51st Street",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 321 W 51st Street - Jaroensrubb Inc. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Ruay Mak Jing Corp.",
+        "category": "SLA Liquor License",
+        "address": "830 9th Avenue",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 830 9th Avenue - Ruay Mak Jing Corp. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Arts 57 NYC LLC.",
+        "category": "SLA Liquor License",
+        "address": "311 W 57th Street",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 311 W 57th Street - Arts 57 NYC LLC. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for King Fish Int LLC",
+        "category": "SLA Liquor License",
+        "address": "25 11th Avenue, Market 57, Kiosk 16",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 25 11th Avenue, Market 57, Kiosk 16 - King Fish Int LLC. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Nero Lab NY Cafe Time Square Corp.",
+        "category": "SLA Liquor License",
+        "address": "340 W 40th Street",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 340 W 40th Street - Nero Lab NY Cafe Time Square Corp. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for ARC Investments NYC LLC & 51st St Foods",
+        "category": "SLA Liquor License",
+        "address": "639-641 W 51St Street",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 639-641 W 51St Street – ARC Investments NYC LLC & 51st St Foods - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Manga Chelsea LLC & Blue Comfort Group Inc.",
+        "category": "SLA Liquor License",
+        "address": "158-160 W 25th Street",
+        "action": "approved",
+        "vote": "37-0-0-0",
+        "evidence": "Letter to SLA re 158-160 W 25th Street - Manga Chelsea LLC & Blue Comfort Group Inc. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Cannabis license letter for Mid-Town Farm Stand",
+        "category": "Cannabis License",
+        "address": "163 8th Avenue",
+        "action": "approved",
+        "vote": "35-1-0-1",
+        "evidence": "Letter to OCM & CCB re 163 8th Avenue – Mid-Town Farm Stand - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Cannabis license letter for MZDZ Corp.",
+        "category": "Cannabis License",
+        "address": "501 W. 57th Street",
+        "action": "approved",
+        "vote": "36-0-0-1",
+        "evidence": "Letter to OCM & CCB re 501 W. 57th Street – MZDZ Corp. - APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Cannabis showcase event application for Cannaisseur NY LLC dba Poppin",
+        "category": "Cannabis License",
+        "address": "456 11th Avenue",
+        "action": "approved",
+        "vote": "34-1-1-1",
+        "evidence": "Letter to Cannabis NYC, NYC SBS re Cannabis Showcase Event – Cannaisseur NY LLC dba Poppin on October 8-11 at 456 11th Avenue - APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "196 8th Avenue",
+        "description": "DOT roadway application for Melting Pot NY LLC",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7432195,
+        "lng": -73.9996794
+      },
+      {
+        "address": "5 Manhattan West aka 450 W 33rd Street, Unit #6",
+        "description": "SLA liquor license application for Manhattan West Coast LLC (Unit #6)",
+        "type": "SLA Liquor License",
+        "action": "ratified",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "5 Manhattan West aka 450 W 33rd Street, Terrace",
+        "description": "SLA liquor license application for Manhattan West Coast LLC (Terrace)",
+        "type": "SLA Liquor License",
+        "action": "ratified",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "709 9th Avenue, North Store",
+        "description": "SLA liquor license application for Suki Desu Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "400 W 50th Street",
+        "description": "SLA liquor license application for Omakase by Korami NY Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7635083,
+        "lng": -73.9892408
+      },
+      {
+        "address": "321 W 51st Street",
+        "description": "SLA liquor license application for Jaroensrubb Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7635263,
+        "lng": -73.9865456
+      },
+      {
+        "address": "830 9th Avenue",
+        "description": "SLA liquor license application for Ruay Mak Jing Corp.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7662252,
+        "lng": -73.9867368
+      },
+      {
+        "address": "311 W 57th Street",
+        "description": "SLA liquor license application for Arts 57 NYC LLC.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7671442,
+        "lng": -73.9834732
+      },
+      {
+        "address": "25 11th Avenue, Market 57, Kiosk 16",
+        "description": "SLA liquor license application for King Fish Int LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "340 W 40th Street",
+        "description": "SLA liquor license application for Nero Lab NY Cafe Time Square Corp.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7565366,
+        "lng": -73.9927042
+      },
+      {
+        "address": "639-641 W 51St Street",
+        "description": "SLA liquor license application for ARC Investments NYC LLC & 51st St Foods",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7635367,
+        "lng": -73.9871226
+      },
+      {
+        "address": "158-160 W 25th Street",
+        "description": "SLA liquor license application for Manga Chelsea LLC & Blue Comfort Group Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7429588,
+        "lng": -73.9889655
+      },
+      {
+        "address": "163 8th Avenue",
+        "description": "Cannabis license letter for Mid-Town Farm Stand",
+        "type": "Cannabis License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7425268,
+        "lng": -74.0008617
+      },
+      {
+        "address": "501 W. 57th Street",
+        "description": "Cannabis license letter for MZDZ Corp.",
+        "type": "Cannabis License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7694132,
+        "lng": -73.9888239
+      },
+      {
+        "address": "456 11th Avenue",
+        "description": "Cannabis showcase event application for Cannaisseur NY LLC dba Poppin",
+        "type": "Cannabis License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.757761,
+        "lng": -74.000411
+      }
+    ]
+  },
+  {
     "id": "cb4-6a0184cc",
     "board": "CB4",
     "date": "2026-07-22",
@@ -223,6 +509,508 @@
         "description": "Cannabis license application for MZDZ Corp.",
         "type": "Cannabis License",
         "action": "APPROVED",
+        "verified": true,
+        "lat": 40.7694132,
+        "lng": -73.9888239
+      }
+    ]
+  },
+  {
+    "id": "cb4-01e1ae9e",
+    "board": "CB4",
+    "date": "2026-07-22",
+    "title": "CB4 — July 2026 Minutes",
+    "pdf_url": "https://cbmanhattan.cityofnewyork.us/cb4/wp-content/uploads/sites/10/2026/10/07-July-2026-MCB4-Full-Board-Meeting-Minutes-Final-1.pdf",
+    "status": "analyzed",
+    "summary": "Manhattan Community Board 4 approved various land use, transportation, and license applications, including a BSA residential development application at 511 West 25th Street and a cannabis license at 501 W. 57th Street. The Board also ratified outdoor dining permits, approved multiple SLA liquor licenses, and authorized the hiring of Stacie Johnson as District Manager.",
+    "committee": "Full Board",
+    "high_priority": true,
+    "high_priority_reason": "SLA Liquor License: SLA liquor license application for Georgie's; SLA Liquor License: SLA liquor license application for Taqueria Condesa; SLA Liquor License: SLA liquor license application for Hungry Spicy Inc.; SLA Liquor License: SLA liquor license application for Hao Rui Xiang LLC; SLA Liquor License: SLA liquor license application for Good Eating Company North America LLC; SLA Liquor License: SLA liquor license application for The Table at RedEye Inc.; SLA Liquor License: SLA liquor license application for Vida Midtown Corp.; SLA Liquor License: SLA liquor license application for Tam Mai ",
+    "items": [
+      {
+        "topic": "DOT roadway application for Georgie's",
+        "category": "Transportation",
+        "address": "161 8th Avenue",
+        "action": "ratified",
+        "vote": null,
+        "evidence": "Letter to DOT re 161 8th Avenue - Georgie's - Application ID 20260511010001 - Roadway - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "DOT sidewalk application for Georgie's",
+        "category": "Transportation",
+        "address": "161 8th Avenue",
+        "action": "ratified",
+        "vote": null,
+        "evidence": "Letter to DOT re 161 8th Avenue - Georgie's - Application ID 20260511010001 – Sidewalk – RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "DOT sidewalk application for Taqueria Condesa",
+        "category": "Transportation",
+        "address": "824 9th Avenue",
+        "action": "ratified",
+        "vote": null,
+        "evidence": "Letter to DOT re 824 9th Avenue - Taqueria Condesa - Application ID 20260410010002 – Sidewalk - RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Georgie's",
+        "category": "SLA Liquor License",
+        "address": "161 8th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 161 8th Avenue - Georgie's - Serial# 0370-261-42605 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Taqueria Condesa",
+        "category": "SLA Liquor License",
+        "address": "824 9th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 824 9th Avenue - Taqueria Condesa - Serial# 0340-251-27014 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Hungry Spicy Inc.",
+        "category": "SLA Liquor License",
+        "address": "114 8th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 114 8th Avenue - Hungry Spicy Inc. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Hao Rui Xiang LLC",
+        "category": "SLA Liquor License",
+        "address": "307 W 39th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 307 W 39th Street - Hao Rui Xiang LLC APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Good Eating Company North America LLC",
+        "category": "SLA Liquor License",
+        "address": "395 9th Avenue, 65th Fl",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 395 9th Avenue, 65th Fl - Good Eating Company North America LLC APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for The Table at RedEye Inc.",
+        "category": "SLA Liquor License",
+        "address": "410 W 43rd Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 410 W 43rd Street - The Table at RedEye Inc. - Serial# 0240-22-100584 APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Vida Midtown Corp.",
+        "category": "SLA Liquor License",
+        "address": "511 9th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 511 9th Avenue – Vida Midtown Corp. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Tam Mai Group Inc.",
+        "category": "SLA Liquor License",
+        "address": "344 W 46th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 344 W 46th Street – Tam Mai Group Inc.APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Saints Coffee Corp.",
+        "category": "SLA Liquor License",
+        "address": "201 7th Avenue",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 201 7th Avenue – Saints Coffee Corp.APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Restaurant Associates LLC (29th Floor)",
+        "category": "SLA Liquor License",
+        "address": "66 Hudson Blvd East, 29th Floor",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 66 Hudson Blvd East, 29th Floor – Restaurant Associates LLC. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "SLA liquor license application for Restaurant Associates LLC (5th Floor)",
+        "category": "SLA Liquor License",
+        "address": "66 Hudson Blvd East, 5th Floor",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to SLA re 66 Hudson Blvd East, 5th Floor – Restaurant Associates LLC. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "HPD UAP Applications for 335 W 25th Street & 345 W 25th Street",
+        "category": "ULURP / Land Use",
+        "address": "335 W 25th Street & 345 W 25th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to HPD re 335 W 25th Street & 345 W 25th Street – UAP Applications APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Support for pay and benefits parity for doctors across the Mt. Sinai system",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to Mt. Sinai West re Support for Doctors receiving pay & benefits parity across the Mt. Sinai system APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "BSA application for residential development at 511 West 25th Street",
+        "category": "BSA Variance",
+        "address": "511 West 25th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to BSA re 511 West 25th Street Application for Residential Development APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "HPD UAP Application for 273 W 22nd Street",
+        "category": "ULURP / Land Use",
+        "address": "273 W 22nd Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Joint Letter to HPD re 273 W 22nd Street – UAP Application APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "6th Avenue Protected Bike Lane Project",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re 6th Avenue Protected Bike Lane Project APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Taxi Operation on 9th Avenue (19/20)",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT, MTA, & TLC re Taxi Operation on 9th Avenue (19/20) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Chelsea Market Street Seats",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re Chelsea Market Street Seats APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "West 25th Street Curb Management",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re West 25th Street Curb Management APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Interim Terminal at West 30th Street",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT & Port Authority re Interim Terminal at West 30th Street APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Shared Streets design at Blocks 4 and 5 of Bella Abzug Park",
+        "category": "Transportation",
+        "address": null,
+        "action": "withdrawn",
+        "vote": null,
+        "evidence": "Letter to HYDC & DOT re Support for the Shared Streets design at Blocks 4 and 5 of Bella Abzug Park WITHDRAWN",
+        "verified": true
+      },
+      {
+        "topic": "Changing weekend taxi parking regulations at West 22nd Street (6/7)",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re Changing weekend taxi parking regulations at West 22nd Street (6/7) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Improved signage for the taxi stand on 12th Avenue (51/52)",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re Improved signage for the taxi stand on 12th Avenue (51/52) APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Concerns for the 9th Avenue Expanded Sidewalk",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re Concerns for the 9th Avenue Expanded Sidewalk APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Loading operations on the 9th Avenue Expanded Sidewalk",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to Delivery Companies re Loading operations on the 9th Avenue Expanded Sidewalk APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Revocable Consent Application for Port Authority under 40th Street",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to DOT re Revocable Consent Application for Port Authority to construct, maintain, and use 2 glycol pipes and concrete duct bank with conduits under 40th Street APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Removing Metrocard dispensers",
+        "category": "Transportation",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to MTA & DOT re removing Metrocard dispensers APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Cannabis license application for MZDZ Corp.",
+        "category": "Cannabis License",
+        "address": "501 W. 57th Street",
+        "action": "approved",
+        "vote": null,
+        "evidence": "Letter to OCM and CCB re 501 W. 57th Street - MZDZ Corp. APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Hudson River Park Esplanade Project – W. 29th– W. 44th Street",
+        "category": "Other",
+        "address": null,
+        "action": "ratified",
+        "vote": null,
+        "evidence": "WPE Letter to HRPT re Hudson River Park Esplanade Project – W. 29th– W. 44th Street – RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Reinstating Hudson Guild as an afterschool provider for P.S. 33",
+        "category": "Other",
+        "address": null,
+        "action": "ratified",
+        "vote": null,
+        "evidence": "ACES Letter to DYCD re Reinstating Hudson Guild as an afterschool provider for P.S. 33 – RATIFIED",
+        "verified": true
+      },
+      {
+        "topic": "Authorization to hire Stacie Johnson as District Manager",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "Authorization to hire Stacie Johnson as District Manager APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Bella Abzug Park Blocks 4, 5, & 6 Design",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "WPE Letter to HYDC re Bella Abzug Park Blocks 4, 5, & 6 Design APPROVED",
+        "verified": true
+      },
+      {
+        "topic": "Police Athletic League Summer Programs",
+        "category": "Other",
+        "address": null,
+        "action": "approved",
+        "vote": null,
+        "evidence": "WPE Letter to Police Athletic League re Summer Programs APPROVED",
+        "verified": true
+      }
+    ],
+    "locations": [
+      {
+        "address": "161 8th Avenue",
+        "description": "DOT roadway application for Georgie's",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7424388,
+        "lng": -74.00084
+      },
+      {
+        "address": "161 8th Avenue",
+        "description": "DOT sidewalk application for Georgie's",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7424388,
+        "lng": -74.00084
+      },
+      {
+        "address": "824 9th Avenue",
+        "description": "DOT sidewalk application for Taqueria Condesa",
+        "type": "Transportation",
+        "action": "ratified",
+        "verified": true,
+        "lat": 40.7660183,
+        "lng": -73.9868806
+      },
+      {
+        "address": "161 8th Avenue",
+        "description": "SLA liquor license application for Georgie's",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7424388,
+        "lng": -74.00084
+      },
+      {
+        "address": "824 9th Avenue",
+        "description": "SLA liquor license application for Taqueria Condesa",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7660183,
+        "lng": -73.9868806
+      },
+      {
+        "address": "114 8th Avenue",
+        "description": "SLA liquor license application for Hungry Spicy Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7408023,
+        "lng": -74.0014139
+      },
+      {
+        "address": "307 W 39th Street",
+        "description": "SLA liquor license application for Hao Rui Xiang LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7557388,
+        "lng": -73.991651
+      },
+      {
+        "address": "395 9th Avenue, 65th Fl",
+        "description": "SLA liquor license application for Good Eating Company North America LLC",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "410 W 43rd Street",
+        "description": "SLA liquor license application for The Table at RedEye Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7594181,
+        "lng": -73.9932118
+      },
+      {
+        "address": "511 9th Avenue",
+        "description": "SLA liquor license application for Vida Midtown Corp.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.756258,
+        "lng": -73.9943385
+      },
+      {
+        "address": "344 W 46th Street",
+        "description": "SLA liquor license application for Tam Mai Group Inc.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7603249,
+        "lng": -73.9896569
+      },
+      {
+        "address": "201 7th Avenue",
+        "description": "SLA liquor license application for Saints Coffee Corp.",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7430998,
+        "lng": -73.9960497
+      },
+      {
+        "address": "66 Hudson Blvd East, 29th Floor",
+        "description": "SLA liquor license application for Restaurant Associates LLC (29th Floor)",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "66 Hudson Blvd East, 5th Floor",
+        "description": "SLA liquor license application for Restaurant Associates LLC (5th Floor)",
+        "type": "SLA Liquor License",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "335 W 25th Street & 345 W 25th Street",
+        "description": "HPD UAP Applications for 335 W 25th Street & 345 W 25th Street",
+        "type": "ULURP / Land Use",
+        "action": "approved",
+        "verified": true,
+        "lat": null,
+        "lng": null
+      },
+      {
+        "address": "511 West 25th Street",
+        "description": "BSA application for residential development at 511 West 25th Street",
+        "type": "BSA Variance",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7495167,
+        "lng": -74.0038673
+      },
+      {
+        "address": "273 W 22nd Street",
+        "description": "HPD UAP Application for 273 W 22nd Street",
+        "type": "ULURP / Land Use",
+        "action": "approved",
+        "verified": true,
+        "lat": 40.7443557,
+        "lng": -73.9980981
+      },
+      {
+        "address": "501 W. 57th Street",
+        "description": "Cannabis license application for MZDZ Corp.",
+        "type": "Cannabis License",
+        "action": "approved",
         "verified": true,
         "lat": 40.7694132,
         "lng": -73.9888239
